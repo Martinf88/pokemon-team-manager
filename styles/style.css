@@ -1,0 +1,42 @@
+:root {
+	/* lägg till varibaler med färger här */
+	--clr-dark: ;
+	--clr-light: ;
+}
+
+*,
+::before
+::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	line-height: calc(1em + 0.5rem);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	/* add font-family here */
+}
+
+img,
+picture,
+svg,
+canvas {
+	display: block;
+	max-width: 100%;
+	user-select: none;
+}
+
+button {
+	display: inline-block;
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+	color: inherit
+}
