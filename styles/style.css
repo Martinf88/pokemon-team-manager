@@ -1,7 +1,13 @@
 :root {
 	/* lägg till varibaler med färger här */
-	--clr-dark: ;
-	--clr-light: ;
+	--clr-dark: #000000;
+	--clr-light: #FFFFFF;
+	--clr-grey: #DFDFDF;
+	--clr-gold: #FFDE00;
+	--clr-darkgold: #D5A100;
+	--clr-blue: #0075BE;
+	--clr-darkblue: #0A285F;
+	--clr-red: #FF0000;
 }
 
 *,
