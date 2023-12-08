@@ -19,42 +19,49 @@
 <body>
 	<!-- Start page for when you first enter the site -->
 	<section class="container">
-		<header>
-			<h1>WELCOME!</h1>
-			<p>Pick a team name and click the pokéball to start your adventure!</p>
-			<input type="text" placeholder="Epic team name goes here">
+		<header class="header">
+			<h1 class="ready">Ready To Catch Ém All?</h1>
+			<p class="instructions">Pick a team name and click the pokéball to start your adventure!</p>
+			<input id="enter-team-name" type="text" placeholder="Epic team name goes here">
+			<a class="start-adventure" href=""><img src="img/pokeball.png" alt="Image of a Pokèball"></a>
 		</header>
-		<a href=""><img src="" alt="Image of a Pokèball"></a>
 	</section>
 
 	<!-- Page displaying your team of 3 choosen pokemon -->
 	<section class="container">
 		<!-- button to switch view to pokédex view where you can search for pokémon -->
-		<button class="btn">Pokédex</button>
-		<h2>Display chosen team name here</h2>
+		<div class="btn-container">
+			<button class="btn go-to-pokedex">Pokédex</button>
+		</div>
+		<h2 class="team-name view-header">Team:</h2>
 
 		<!-- List with three champions -->
 		<ol id="champions-list" class="pokedex">
 			<li class="pokemon-card">
 				<img src="" alt="Farfetch'd">
 				<p>Farfetch'd</p>
-				<button class="btn">Kick from team</button>
+				<button class="btn kick">Kick from team</button>
 			</li>	
 			<li class="pokemon-card">
 				<img src="" alt="Ducklett">
 				<p>Ducklett</p>
-				<button class="btn">Kick from team</button>
+				<button class="btn kick">Kick from team</button>
 			</li>
 			<li class="pokemon-card">
 				<img src="" alt="Psyduck">
 				<p>Psyduck</p>
-				<button class="btn">Kick from team</button>
+				<button class="btn kick">Kick from team</button>
 			</li>
 		</ol>
 	</section>
 
 	<!-- Pokédex view where you can search for pokémon and add to your team -->
 	<section class="container">
+
+		<div class="btn-container">
+			<button class="btn go-to-champions">Champions</button>
+		</div>
+		<h2 class="view-header">Pokedex</h2>
 
 		<!-- pokémon reserve list -->
 		<ol id="pokemon-list" class="pokedex">

@@ -41,6 +41,7 @@ canvas {
 	user-select: none;
 }
 
+/* removes all default styles */
 button {
 	display: inline-block;
 	padding: 0;
@@ -49,14 +50,66 @@ button {
 	cursor: pointer;
 	color: inherit
 }
-
-.container {
-	border: 1px solid black;
+/* code for start screen starts here */
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.teammate {
-	background-color: var(--clr-light);
-	border: 1px solid black;
+.ready {
+	text-align: center;
+	color: var(--clr-darkgold);
+	font-size: 2.5rem;
+	letter-spacing: 0.12em;
+}
+
+.instructions {
+	text-align: center;
+	color: var(--clr-gold);
+	letter-spacing: 0.14em;
+	margin-top: 4em;
+}
+
+#enter-team-name {
+	background-color: var(--clr-red);
+	margin-top: 1em;
+	border-radius: 8px;
+	height: 3em;
+	width: 16em;
+	font-size: 1em;
+	text-align: center;
+	color: var(--clr-light);
+	font-family: 'Pixelify Sans', sans-serif;
+	font-weight: 600;
+}
+#enter-team-name::placeholder {
+	font-family: 'Pixelify Sans', sans-serif;
+	font-weight: 600;
+	color: var(--clr-light);
+}
+
+.start-adventure {
+	margin: 3rem 0 3rem;
+	width: 20em;
+	opacity: 0.9;
+}
+
+.start-adventure:hover {
+	opacity: 1;
+}
+
+
+/* code for chosen champions starts here */
+
+.team-name {
+	text-align: center;
+	margin: 1em 0 1em;
+}
+
+.btn-container {
+	display: flex;
+	justify-content: center;
 }
 
 /* use this class to style all <li> elements */
@@ -64,14 +117,19 @@ button {
 	display: inline-block;
 	border: 1px solid red;
 	padding: 4em 2em;
-	margin: 1em
+	margin: 1em;
+	background-color: var(--clr-light);
+}
 
+.kick {
+	
 }
 
 /* use this class to style all <ol> elements */
 .pokedex {
 	display: flex;
+	justify-content:center;
 	list-style-type: none;
-	border: 1px solid black;
 	flex-wrap: wrap;
+	padding-left: 0;
 }
