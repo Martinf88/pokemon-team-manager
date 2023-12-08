@@ -3,12 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<!-- CSS-files -->
 	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/utils.css">
+	<!-- script-files -->
 	<script type="module" src="scripts/dom.js"></script>
 	<script type="module" src="scripts/fetching.js"></script>
+
 	<title>Pokémon team manager</title>
 </head>
 <body>
@@ -25,42 +30,44 @@
 	<!-- Page displaying your team of 3 choosen pokemon -->
 	<section class="container">
 		<!-- button to switch view to pokédex view where you can search for pokémon -->
-		<button>Pokédex</button>
+		<button class="btn">Pokédex</button>
 		<h2>Display chosen team name here</h2>
 
-		<!-- container for pokémon cards -->
-		<div class="team-container">
-			<div class="teammate">
-				<img src="" alt="image of Ducklett">
-				<p>Ducklett</p>
-			</div>
-			<button>Kick from team</button>
-			<div class="teammate">
-				<img src="" alt="image of Psyduck">
-				<p>Psyduck</p>
-			</div>
-			<button>Kick from team</button>
-			<div class="teammate">
-				<img src="" alt="image of Farfetch'd">
+		<!-- List with three champions -->
+		<ol id="champions-list" class="pokedex">
+			<li class="pokemon-card">
+				<img src="" alt="Farfetch'd">
 				<p>Farfetch'd</p>
-			</div>
-			<button>Kick from team</button>
-		</div>
+				<button class="btn">Kick from team</button>
+			</li>	
+			<li class="pokemon-card">
+				<img src="" alt="Ducklett">
+				<p>Ducklett</p>
+				<button class="btn">Kick from team</button>
+			</li>
+			<li class="pokemon-card">
+				<img src="" alt="Psyduck">
+				<p>Psyduck</p>
+				<button class="btn">Kick from team</button>
+			</li>
+		</ol>
 	</section>
 
 	<!-- Pokédex view where you can search for pokémon and add to your team -->
 	<section class="container">
-		<ol>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
-			<li><img src="" alt="pikachu">Namn</li>
+
+		<!-- pokémon reserve list -->
+		<ol id="pokemon-list" class="pokedex">
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
+			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
 		</ol>
 	</section>
 </body>

@@ -1,0 +1,31 @@
+:root {
+	/* lägg till varibaler med färger här */
+	--clr-dark: #000000;
+	--clr-light: #FFFFFF;
+	--clr-grey: #DFDFDF;
+	--clr-gold: #FFDE00;
+	--clr-darkgold: #D5A100;
+	--clr-blue: #0075BE;
+	--clr-darkblue: #0A285F;
+	--clr-red: #FF0000;
+
+	/* --clr-red: rgb(255, 0, 0) */
+}
+
+.btn {
+	font-weight: 600;
+	letter-spacing: -0.05em;
+	background-color: var(--clr-red);
+	color: var(--clr-light);
+	padding: 0.5em 1em;
+	border-radius: 6px;
+	box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5),
+	0 6px 6px rgba(255, 0, 0, 0.5), 0 0 100px -10px var(--clr-red);
+	transition: transform 0.3s, box shadow 0.3s;
+}
+
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 14px 28px rgba(255, 0, 0, 0.25),
+	0 10px 10px rgba(255, 0, 0, 0.22), 0 0 120px -10px var(--clr-red);
+}
