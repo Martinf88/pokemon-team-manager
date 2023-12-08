@@ -26,7 +26,7 @@ html {
 }
 
 body {
-	/* add font-family here */
+	font-family: 'Pixelify Sans', sans-serif;
 }
 
 img,
@@ -45,4 +45,33 @@ button {
 	background: none;
 	cursor: pointer;
 	color: inherit
+}
+
+.container {
+	border: 1px solid black;
+}
+
+.team-container {
+	display: flex;
+	justify-content: space-evenly;
+	background-color: var(--clr-grey);
+}
+
+.teammate {
+	background-color: var(--clr-light);
+	border: 1px solid black;
+}
+
+ol {
+	display: flex;
+	list-style-type: none;
+	border: 1px solid black;
+	flex-wrap: wrap;
+}
+
+ol > li {
+	border: 1px solid red;
+	padding: 4em 2em;
+	margin: 1em
+
 }
