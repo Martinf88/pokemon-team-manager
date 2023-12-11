@@ -19,13 +19,27 @@ export const fillPokedex = (pokemon) => {
 	promoteButtons.forEach(button => {
 		// Flyttar hela li-elementet när knappen klickas.
 		button.addEventListener('click', (event) => {
+
 			if(event.target.classList.contains('promote')){
 				const listItem = button.closest('.poke-card');
-				championsList.append(listItem);
-				button.innerText = 'Kick'
-				event.target.classList.remove('promote')
-				event.target.classList.add('kick')
-			} else {
+				if (championsList.childElementCount < 3) {
+					championsList.append(listItem);
+					button.innerText = 'Kick'
+					event.target.classList.remove('promote')
+					event.target.classList.add('kick')
+				}else {
+					const teamIsFull = document.createElement('p')
+					teamIsFull.innerText = 'Your team is at full capasity';
+					button.style.display = 'none';
+					teamIsFull.style.color = 'red';
+					listItem.appendChild(teamIsFull)
+					setTimeout(() => {
+						listItem.removeChild(teamIsFull);
+						button.style.display = 'inline-block';
+					  }, 600);
+				}
+			} 
+			else {
 				const listItem = event.target.closest('.poke-card');
 				pokemonList.append(listItem);
 				button.innerText = 'Promote';
