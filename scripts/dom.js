@@ -17,7 +17,7 @@ export const fillPokedex = (pokemon) => {
 
 	const promoteButtons = document.querySelectorAll('.promote');
 	promoteButtons.forEach(button => {
-		// Flyttar hela li-elementet när knappen klickas.
+		// moves pokemon from one list to another when button is clicked
 		button.addEventListener('click', (event) => {
 
 			if(event.target.classList.contains('promote')){
@@ -27,6 +27,7 @@ export const fillPokedex = (pokemon) => {
 					button.innerText = 'Kick'
 					event.target.classList.remove('promote')
 					event.target.classList.add('kick')
+				//if team has 3 adding more is prevented
 				}else {
 					const teamIsFull = document.createElement('p')
 					teamIsFull.innerText = 'Your team is at full capasity';
