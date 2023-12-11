@@ -14,14 +14,24 @@ export const fillPokedex = (pokemon) => {
 	</li>
 	`).join('');
 	pokemonList.innerHTML = li;
-	console.log(pokemonList);
 
 	const promoteButtons = document.querySelectorAll('.promote');
 	promoteButtons.forEach(button => {
-		button.addEventListener('click', () => {
-		  // Flyttar hela li-elementet när knappen klickas.
-		  const listItem = button.closest('.poke-card');
-		  championsList.appendChild(listItem);
+		// Flyttar hela li-elementet när knappen klickas.
+		button.addEventListener('click', (event) => {
+			if(event.target.classList.contains('promote')){
+				const listItem = button.closest('.poke-card');
+				championsList.append(listItem);
+				button.innerText = 'Kick'
+				event.target.classList.remove('promote')
+				event.target.classList.add('kick')
+			} else {
+				const listItem = event.target.closest('.poke-card');
+				pokemonList.append(listItem);
+				button.innerText = 'Promote';
+				event.target.classList.remove('kick')
+				event.target.classList.add('promote')
+			}
 		});
 	})
 }

@@ -15,7 +15,10 @@ export const fetchPokemon = async () => {
 		const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
 		promises.push(fetch(url).then((res) => res.json()));
 	}
-	Promise.all(promises).then(results => {
+
+	try {
+		const results = await Promise.all(promises);
+
 		const pokemon = results.map((data) => ({
 			name: data.name,
 			id: data.id,
@@ -23,9 +26,12 @@ export const fetchPokemon = async () => {
 			type: data.types.map((type) => type.type.name).join(', ')
 		}));
 		console.log(pokemon);
-		fillPokedex(pokemon)
-	}) 
 
+		// call function in dom.js
+		fillPokedex(pokemon);
+	} catch (error) {
+		console.log(error.message);
+	}
 }
 
 
