@@ -66,6 +66,7 @@
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 	margin-top: 3em;
+	border: 2px solid greenyellow;
 }
 
 .view-header {
@@ -84,7 +85,7 @@
 /* sm */
 @media (min-width: 640px) {
 	.container {
-		max-width: 475px;
+		max-width: 640px;
 	}
 }
 

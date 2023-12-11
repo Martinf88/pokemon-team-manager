@@ -18,7 +18,7 @@
 </head>
 <body>
 	<!-- Start page for when you first enter the site -->
-	<section class="container">
+	<section class="container first">
 		<header class="header">
 			<h1 class="ready">Ready To Catch Ém All?</h1>
 			<p class="instructions">Pick a team name and click the pokéball to start your adventure!</p>
@@ -31,27 +31,12 @@
 	<section class="container">
 		<!-- button to switch view to pokédex view where you can search for pokémon -->
 		<div class="btn-container">
-			<button class="btn go-to-pokedex">Pokédex</button>
+			<button class="btn go-to-pokedex">Pokédex screen</button>
 		</div>
 		<h2 class="team-name view-header">Team:</h2>
 
 		<!-- List with three champions -->
 		<ol id="champions-list" class="pokedex">
-			<li class="pokemon-card">
-				<img src="" alt="Farfetch'd">
-				<p>Farfetch'd</p>
-				<button class="btn kick">Kick from team</button>
-			</li>	
-			<li class="pokemon-card">
-				<img src="" alt="Ducklett">
-				<p>Ducklett</p>
-				<button class="btn kick">Kick from team</button>
-			</li>
-			<li class="pokemon-card">
-				<img src="" alt="Psyduck">
-				<p>Psyduck</p>
-				<button class="btn kick">Kick from team</button>
-			</li>
 		</ol>
 	</section>
 
@@ -59,23 +44,15 @@
 	<section class="container">
 
 		<div class="btn-container">
-			<button class="btn go-to-champions">Champions</button>
+			<button class="btn go-to-champions">Champions screen</button>
+			<button class=" btn generate-list">generate list</button>
+			<label for="search-pokemon">Search for pokemon: </label>
+			<input id="search-pokemon" type="search">
 		</div>
 		<h2 class="view-header">Pokedex</h2>
 
-		<!-- pokémon reserve list -->
-		<ol id="pokemon-list" class="pokedex">
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-			<li class="pokemon-card"><img src="" alt="pikachu">Namn</li>
-		</ol>
+		<!-- pokémon reserve list. img, name, id, type, button to add pokemon to champions-->
+		<ol id="pokemon-list" class="pokedex"></ol>
 	</section>
 </body>
 </html>
