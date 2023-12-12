@@ -23,21 +23,37 @@ export const fillPokedex = (pokemon) => {
 	`).join('');
 	pokemonList.innerHTML = li;
 
+	
+
 	const promoteButtons = document.querySelectorAll('.promote');
 	promoteButtons.forEach(button => {
 		// moves pokemon from one list to another when button is clicked
 		button.addEventListener('click', (event) => {
 
 			if(event.target.classList.contains('promote')){
+				//closest parent element to button
 				const listItem = button.closest('.poke-card');
 				
 				if (championsList.childElementCount < 3) {
-					championsList.append(listItem);
-					button.innerText = 'Kick'
-					event.target.classList.remove('promote')
-					event.target.classList.add('kick')
+					const clonedListItem = listItem.cloneNode(true); // Clone the listItem
+					championsList.append(clonedListItem);
+				
+					const clonedButton = clonedListItem.querySelector('.promote');
+					clonedButton.innerText = 'Kick';
+					clonedButton.classList.remove('promote');
+					clonedButton.classList.add('kick');
+
+					//click event for clone. fix so that it kan be added again later without making another clone
+					clonedButton.addEventListener('click', () => {
+						pokemonList.append(clonedListItem)
+						clonedListItem.innerHTML += '<p>clone</p>'
+						clonedButton.innerText = 'Promote';
+						clonedButton.classList.remove('kick');
+						clonedButton.classList.add('promote');
+					})
+				} 
 				//if team has 3 adding more is prevented
-				}else {
+				else {
 					const teamIsFull = document.createElement('p')
 					teamIsFull.innerText = 'Your team is at full capasity';
 					button.style.display = 'none';
@@ -49,13 +65,6 @@ export const fillPokedex = (pokemon) => {
 					  }, 600);
 				}
 			} 
-			else {
-				const listItem = event.target.closest('.poke-card');
-				pokemonList.append(listItem);
-				button.innerText = 'Promote';
-				event.target.classList.remove('kick')
-				event.target.classList.add('promote')
-			}
 		});
 	})
 
