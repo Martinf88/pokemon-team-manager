@@ -10,6 +10,7 @@
 	--clr-red: #FF0000;
 
 	/* --clr-red: rgb(255, 0, 0) */
+	/* --clr-darkgold 	rgb(213, 161, 0) */
 }
 
 *,
@@ -50,13 +51,10 @@ button {
 	color: inherit
 }
 /* code for start screen starts here */
-.first {
-
-}
-
-.second, .third {
+.hidden {
 	display: none;
 }
+
 
 .header {
 	display: flex;
@@ -66,9 +64,10 @@ button {
 
 .ready {
 	text-align: center;
-	color: var(--clr-darkgold);
+	color: var(--clr-red);
 	font-size: 2.5rem;
 	letter-spacing: 0.12em;
+	text-shadow: 2px 2px 4px rgba(255, 255, 255, 10);
 }
 
 .instructions {
@@ -97,7 +96,7 @@ button {
 }
 
 .start-adventure {
-	margin: 3rem 0 3rem;
+	margin-top: 3rem;
 	width: 20em;
 	opacity: 0.9;
 }
@@ -110,7 +109,13 @@ button {
 /* code for chosen champions starts here */
 
 .team-name {
-	
+/* hitta ett sätt att centrera h2 elementet */
+	color: var(--clr-gold);
+	font-size: 2.5em;
+	text-shadow: 5px 5px 4px rgba(213, 161, 0, 0.5);
+	letter-spacing: 0.3em;
+	border-top: dashed var(--clr-gold);
+	border-bottom: dashed var(--clr-gold);
 }
 
 .btn-container {

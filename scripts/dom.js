@@ -8,6 +8,7 @@ const secondContainer = document.querySelector('.second')
 const thirdContainer = document.querySelector('.third')
 const enterTeamName = document.querySelector('#enter-team-name')
 const teamName = document.querySelector('.team-name')
+const toggleView = document.querySelectorAll('.toggle-view')
 
 // triggered by event in fetching.js
 // fills up pokedex
@@ -78,6 +79,9 @@ export const fillPokedex = (pokemon) => {
 
 // START ADVENTURE -- PICK A TEAM NAME 
 
+secondContainer.classList.add('hidden')
+thirdContainer.classList.add('hidden')
+
 // start image clicked: hide start screen and show team visualViewport
 
 startAdventure.addEventListener('click', (event) => {
@@ -88,10 +92,23 @@ startAdventure.addEventListener('click', (event) => {
 		//lägg till namn i team name på mina andra vyer
 		//dölj firstContainer & visa secondContainer
 		teamName.innerText += textValue
-		firstContainer.style.display = 'none'
-		secondContainer.style.display = 'block'
+		firstContainer.classList.add('hidden')
+		secondContainer.classList.remove('hidden')
 	} else {
 		//uppmana användaren till att skriva in ett lagnamn
 	}
 })
 
+
+toggleView.forEach(button => {
+
+	button.addEventListener('click', () => {
+		if (thirdContainer.classList.contains('hidden')){
+			secondContainer.classList.add('hidden')
+			thirdContainer.classList.remove('hidden')
+		} else {
+			secondContainer.classList.remove('hidden')
+			thirdContainer.classList.add('hidden')
+		}
+	})
+})
