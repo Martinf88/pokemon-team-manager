@@ -11,7 +11,7 @@ generateList.addEventListener('click', () => {
 const promises = [];
 export const fetchPokemon = async () => {
 	// hämtar 1 > ??? antal pokemon.
-	for (let i = 1; i <= 10; i++) {
+	for (let i = 1; i <= 6; i++) {
 		const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
 		promises.push(fetch(url).then((res) => res.json()));
 	}

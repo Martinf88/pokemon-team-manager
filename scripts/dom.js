@@ -1,6 +1,7 @@
 export const generateList = document.querySelector('.generate-list')
 const pokemonList = document.querySelector('#pokemon-list')
 const championsList = document.querySelector('#champions-list')
+const searchPokemon = document.querySelector('#search-pokemon')
 
 // triggered by event in fetching.js
 // fills up pokedex
@@ -22,6 +23,7 @@ export const fillPokedex = (pokemon) => {
 
 			if(event.target.classList.contains('promote')){
 				const listItem = button.closest('.poke-card');
+				
 				if (championsList.childElementCount < 3) {
 					championsList.append(listItem);
 					button.innerText = 'Kick'
@@ -49,5 +51,19 @@ export const fillPokedex = (pokemon) => {
 			}
 		});
 	})
-}
+	searchPokemon.addEventListener('input', () => {
+		console.log(`The term searched for was ${searchPokemon.value}`);
+		
+		const searchTerm = searchPokemon.value.toUpperCase();
+		const pokeCards = document.querySelectorAll('.poke-card');
 
+		pokeCards.forEach(pokeCard => {
+			if (pokeCard.querySelector('.card-title').innerText.toUpperCase().includes(searchTerm)){
+				pokeCard.style.display = 'block';
+			} else {
+				pokeCard.style.display = 'none';
+			}
+		})
+	}); 
+	
+}

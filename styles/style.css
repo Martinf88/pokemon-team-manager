@@ -119,7 +119,7 @@ button {
 	padding-inline-start: 0;
 	list-style-type: none;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 	gap: 1em;
 	margin: 0 1em 0 1em;
 }
