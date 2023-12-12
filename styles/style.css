@@ -51,6 +51,10 @@ button {
 }
 /* code for start screen starts here */
 .first {
+
+}
+
+.second, .third {
 	display: none;
 }
 

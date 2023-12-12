@@ -2,6 +2,12 @@ export const generateList = document.querySelector('.generate-list')
 const pokemonList = document.querySelector('#pokemon-list')
 const championsList = document.querySelector('#champions-list')
 const searchPokemon = document.querySelector('#search-pokemon')
+const startAdventure = document.querySelector('.start-adventure')
+const firstContainer = document.querySelector('.first')
+const secondContainer = document.querySelector('.second')
+const thirdContainer = document.querySelector('.third')
+const enterTeamName = document.querySelector('#enter-team-name')
+const teamName = document.querySelector('.team-name')
 
 // triggered by event in fetching.js
 // fills up pokedex
@@ -51,8 +57,9 @@ export const fillPokedex = (pokemon) => {
 			}
 		});
 	})
+
+	//POKEDEX SEARCH FUNCTION
 	searchPokemon.addEventListener('input', () => {
-		console.log(`The term searched for was ${searchPokemon.value}`);
 		
 		const searchTerm = searchPokemon.value.toUpperCase();
 		const pokeCards = document.querySelectorAll('.poke-card');
@@ -67,3 +74,24 @@ export const fillPokedex = (pokemon) => {
 	}); 
 	
 }
+
+
+// START ADVENTURE -- PICK A TEAM NAME 
+
+// start image clicked: hide start screen and show team visualViewport
+
+startAdventure.addEventListener('click', (event) => {
+	event.preventDefault()
+	const textValue = enterTeamName.value.trim();
+
+	if(textValue !== '') {
+		//lägg till namn i team name på mina andra vyer
+		//dölj firstContainer & visa secondContainer
+		teamName.innerText += textValue
+		firstContainer.style.display = 'none'
+		secondContainer.style.display = 'block'
+	} else {
+		//uppmana användaren till att skriva in ett lagnamn
+	}
+})
+
