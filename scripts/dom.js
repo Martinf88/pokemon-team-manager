@@ -46,10 +46,10 @@ export const fillPokedex = (pokemon) => {
 					//click event for clone. fix so that it kan be added again later without making another clone
 					clonedButton.addEventListener('click', () => {
 						pokemonList.append(clonedListItem)
-						clonedListItem.innerHTML += '<p>clone</p>'
 						clonedButton.innerText = 'Promote';
 						clonedButton.classList.remove('kick');
 						clonedButton.classList.add('promote');
+						clonedListItem.innerHTML += '<p>clone</p>'
 					})
 				} 
 				//if team has 3 adding more is prevented
