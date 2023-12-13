@@ -7,6 +7,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
 	<!-- CSS-files -->
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="styles/utils.css">
@@ -33,10 +34,10 @@
 		<div class="btn-container">
 			<button class="btn toggle-view">Pokédex screen</button>
 		</div>
-		<h2 class="team-name view-header">Team: </h2>
+		<h2 class="team-name">Team: </h2>
 		
 		<!-- List with three champions -->
-		<ol id="champions-list" class="pokedex">
+		<ol id="champions-list">
 		</ol>
 
 	</section>
@@ -46,11 +47,9 @@
 
 		<nav class="navbar">
 			<button class="btn toggle-view">Champions screen</button>
-			<button class=" btn generate-list">generate list</button>
-
-			<input id="search-pokemon" type="search" name:"q" placeholder="search">
+			<input id="search-pokemon" type="search" placeholder="search">
 		</nav>
-		<h2 class="view-header">Pokedex</h2>
+		<h2 class="pokedex-title">Pokedex</h2>
 
 		<!-- pokémon reserve list. img, name, id, type, button to add pokemon to champions-->
 		<ol id="pokemon-list" class="pokedex"></ol>

@@ -1,8 +1,7 @@
-export const generateList = document.querySelector('.generate-list')
 const pokemonList = document.querySelector('#pokemon-list')
 const championsList = document.querySelector('#champions-list')
 const searchPokemon = document.querySelector('#search-pokemon')
-const startAdventure = document.querySelector('.start-adventure')
+export const startAdventure = document.querySelector('.start-adventure')
 const firstContainer = document.querySelector('.first')
 const secondContainer = document.querySelector('.second')
 const thirdContainer = document.querySelector('.third')
@@ -10,76 +9,132 @@ const enterTeamName = document.querySelector('#enter-team-name')
 const teamName = document.querySelector('.team-name')
 const toggleView = document.querySelectorAll('.toggle-view')
 
-// triggered by event in fetching.js
-// fills up pokedex
+function createPokemonCard(pokemon, buttonClass, buttonText) {
+	return`
+		<li class="poke-card">
+			<img class="card-image" src="${pokemon.image}"/>
+			<h2 class="card-title">${pokemon.id}, ${pokemon.name}</h2>
+			<p class="card-subtitle">Type: ${pokemon.type}</p>
+			<input type="text" class="nickname-input" placeholder="Enter nickname">
+            <button class="btn save-nickname">Save Nickname</button>
+			<button class="btn ${buttonClass}">${buttonText}</button>
+		</li>`;
+}
+
 export const fillPokedex = (pokemon) => {
-	const li = pokemon.map(pokemon => `
-	<li class="poke-card">
-		<img class="card-image" src="${pokemon.image}"/>
-		<h2 class="card-title">${pokemon.id}, ${pokemon.name}</h2>
-		<p class="card-subtitle">Type: ${pokemon.type}</p>
-		<button class="promote btn">Promote</button>
-	</li>
-	`).join('');
-	pokemonList.innerHTML = li;
+	pokemon.forEach(pokemon => {
+		let buttonClass = 'promote';
+		let buttonText = 'Promote';
+		if (championsList.childElementCount < 3) {
+			buttonClass = 'kick';
+			buttonText = 'Kick';
+		}
+		const li = createPokemonCard(pokemon, buttonClass, buttonText);
+		if(championsList.childElementCount < 3) {
+			championsList.innerHTML += li;
+		} else {
+			pokemonList.innerHTML += li;
+		}
+		});
+
+		attachButtonHandlers();
+		attachNicknameHandlers();
+	}
+	
+	function attachNicknameHandlers() {
+		const saveNickname = document.querySelectorAll('.save-nickname');
+
+		saveNickname.forEach(button => {
+			button.addEventListener('click', () => {
+				const listItem = button.closest('.poke-card');
+				const nicknameInput = listItem.querySelector('.nickname-input');
+				const cardTitle = listItem.querySelector('.card-title');
+
+				cardTitle.innerText = nicknameInput.value;
+				nicknameInput.value = '';
+			})
+		})
+	}
+
+	function attachButtonHandlers() {
+		const promoteButtons = document.querySelectorAll('.promote');
+		const kickButtons = document.querySelectorAll('.kick');
+	
+		promoteButtons.forEach(button => {
+			button.addEventListener('click', createPromoteHandler(button))
+		});
+		
+	
+		kickButtons.forEach(button => {
+			button.addEventListener('click', createKickHandler(button));
+		});
+
+	}		
+
 
 	
 
-	const promoteButtons = document.querySelectorAll('.promote');
-	promoteButtons.forEach(button => {
-		// moves pokemon from one list to another when button is clicked
-		button.addEventListener('click', (event) => {
-
-			if(event.target.classList.contains('promote')){
-				//closest parent element to button
-				const listItem = button.closest('.poke-card');
-				
+	function createPromoteHandler(button) {
+		const promoteHandler = (event) => {
+			const listItem = button.closest('.poke-card');
 				if (championsList.childElementCount < 3) {
-					if(listItem){
-						const clonedListItem = listItem.cloneNode(true); // Clone the listItem
-						championsList.append(clonedListItem);
-					
-						const clonedButton = clonedListItem.querySelector('.promote');
-						clonedButton.innerText = 'Kick';
-						clonedButton.classList.remove('promote');
-						clonedButton.classList.add('kick');
-						
-						clonedButton.addEventListener('click', () => {
-								pokemonList.append(clonedListItem)
-								clonedButton.innerText = 'Promote';
-								clonedButton.classList.remove('kick');
-								clonedButton.classList.add('promote');
-								clonedListItem.innerHTML += '<p>clone</p>'
-							})
-
-						} else if (clonedListItem){
-							const clonedButton = clonedListItem.querySelector('.promote');
-
-							clonedButton.addEventListener('click', () => {
-								championsList.append(clonedListItem)
-								clonedButton.innertext = 'Kick';
-								clonedButton.classList.remove('promote');
-								clonedButton.classList.add('kick');
-								console.log('halloj');
-							})		
+					let listItemToMove;
+					if (listItem.isClone) {
+						listItemToMove = listItem;
+					} else {
+						listItemToMove = listItem.cloneNode(true);
+						listItemToMove.isClone = true;
+						// listItemToMove.append(document.createTextNode(" (Clone)"));
 					}
+	
+					championsList.append(listItemToMove);
+	
+					const buttonToMove = listItemToMove.querySelector('.promote');
+					buttonToMove.innerText = 'Kick';
+					buttonToMove.classList.remove('promote');
+					buttonToMove.classList.add('kick');
+	
+					buttonToMove.removeEventListener('click', promoteHandler);
+					buttonToMove.addEventListener('click', createKickHandler(buttonToMove));
 
-				} 
-				//if team has 3 adding more is prevented
-				else {
-					const teamIsFull = document.createElement('p')
-					teamIsFull.innerText = 'Your team is at full capasity';
-					button.style.display = 'none';
-					teamIsFull.style.color = 'red';
-					listItem.appendChild(teamIsFull)
-					setTimeout(() => {
-						listItem.removeChild(teamIsFull);
-						button.style.display = 'inline-block';
-					  }, 600);
+					attachNicknameHandlers();
+				} else {
+
+					showTeamIsFullMessage(listItem);
 				}
-			} 
-		});
-	})
+		};
+	
+		return promoteHandler;
+	}
+
+	function showTeamIsFullMessage(listItem) {
+		// Check if a 'teamIsFull' element already exists
+		const teamIsFull = document.createElement('p');
+		if (!listItem.querySelector('.teamIsFull')) {
+			teamIsFull.className = 'teamIsFull'; // Add a class for easy reference
+			teamIsFull.innerText = 'Your team is at full capacity';
+			teamIsFull.style.color = 'red';
+			listItem.appendChild(teamIsFull);
+			setTimeout(() => {
+				listItem.removeChild(teamIsFull);
+			}, 1000);
+		}
+	}
+	
+	function createKickHandler(button) {
+		const kickHandler = (event) => {
+			const listItem = button.closest('.poke-card');
+			pokemonList.append(listItem);
+			button.innerText = 'Promote';
+			button.classList.remove('kick');
+			button.classList.add('promote');
+	
+			button.removeEventListener('click', kickHandler);
+			button.addEventListener('click', createPromoteHandler(button));
+		};
+	
+		return kickHandler;
+	}
 
 	//POKEDEX SEARCH FUNCTION
 	searchPokemon.addEventListener('input', () => {
@@ -96,7 +151,7 @@ export const fillPokedex = (pokemon) => {
 		})
 	}); 
 	
-}
+
 
 
 // START ADVENTURE -- PICK A TEAM NAME 

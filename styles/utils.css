@@ -48,6 +48,7 @@
 	color: var(--clr-light);
 	padding: 0.5em 1em;
 	border-radius: 6px;
+	margin-top: 1em;
 	/* box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5),
 	0 6px 6px rgba(255, 0, 0, 0.5), 0 0 100px -10px var(--clr-red);
 	transition: transform 0.3s, box shadow 0.3s; */
@@ -65,12 +66,6 @@
 	margin-right: auto;
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
-	margin-top: 0.5em;
-}
-
-.view-header {
-	text-align: center;
-	margin-top: 2em;
 }
 
 
@@ -86,12 +81,25 @@
 	.container {
 		max-width: 640px;
 	}
+	.pokedex {
+		grid-template-columns: repeat(2, 200px);
+	}
+
+	#champions-list {
+		grid-template-columns: repeat(2, 200px);
+	}
 }
 
 /* md */
 @media (min-width: 768px) {
 	.container {
 		max-width: 768px;
+	}
+	.pokedex {
+		grid-template-columns: repeat(3, 200px);
+	}
+	#champions-list {
+		grid-template-columns: repeat(3, 200px);
 	}
 }
 
@@ -100,17 +108,28 @@
 	.container {
 		max-width: 1024px;
 	}
+	.pokedex {
+		grid-template-columns: repeat(4, 200px);
+	}
+	
 }
 /* xL */
 @media (min-width: 1280px) {
 	.container {
 		max-width: 1280px;
 	}
+	.pokedex {
+		grid-template-columns: repeat(5, 200px);
+	}
+	
 }
 
 /* 2xL */
 @media (min-width: 1536px) {
 	.container {
 		max-width: 1536px;
+	}
+	.pokedex {
+		grid-template-columns: repeat(6, 200px);
 	}
 } 

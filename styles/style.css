@@ -2,7 +2,7 @@
 	/* lägg till varibaler med färger här */
 	--clr-dark: #000000;
 	--clr-light: #FFFFFF;
-	--clr-grey: #DFDFDF;
+	--clr-grey: #b1b1b1;
 	--clr-gold: #FFDE00;
 	--clr-darkgold: #D5A100;
 	--clr-blue: #0075BE;
@@ -29,7 +29,7 @@ html {
 }
 
 body {
-	font-family: 'Pixelify Sans', sans-serif;
+	font-family: 'ArcadeClassic', sans-serif;
 	background-color: var(--clr-blue);
 }
 
@@ -116,6 +116,8 @@ button {
 	letter-spacing: 0.3em;
 	border-top: dashed var(--clr-gold);
 	border-bottom: dashed var(--clr-gold);
+	text-align: center;
+	margin-top: 2em;
 }
 
 .btn-container {
@@ -123,40 +125,72 @@ button {
 	justify-content: center;
 }
 
-/* use this class to style all <ol> */
+.navbar{
+	text-align: center;
+	padding: 1em;
+	margin-top: 0;
+}
+
+
+.pokedex-title {
+	text-align: center;
+	margin-top: 1em;
+	color: var(--clr-red);
+	font-size: 3.5em;
+	letter-spacing: 0.25em;
+}
+
 .pokedex {
 	padding-inline-start: 0;
 	list-style-type: none;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	grid-template-columns: repeat(1, 200px);
+	justify-content: center;
 	gap: 1em;
-	margin: 0 1em 0 1em;
+	margin: 4em 1em 0 1em;
+}
+
+#champions-list {
+	padding-inline-start: 0;
+	list-style-type: none;
+	display: grid;
+	grid-template-columns: repeat(1, 200px);
+	justify-content: center;
+	gap: 1em;
+	margin: 4em 1em 0 1em;
 }
 
 /* use this class to style all <li> elements */
 .poke-card {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 	text-transform: uppercase;
 	text-align: center;
-	border: 1px solid red;
+	border: 2px solid var(--clr-red);
 	background-color: var(--clr-light);
+	border-radius: 5px;
 }
 
-.card-image {
-	
+.poke-card > img,
+.poke-card > h3,
+.poke-card > p {
+	align-self: flex-start;
+	margin: auto;
 }
 
 .card-title {
-
+	color: var(--clr-blue);
 }
 
 .card-subtitle {
 	color: grey;
 }
 
-.promote{
-	margin: 1em 0 1em;
+.promote, .kick{
+	margin: 0 0 1em;
 }
 
-.kick {
-	margin: 1em 0 1em;
+.nickname-input {
+	margin-top: 1em;
 }
