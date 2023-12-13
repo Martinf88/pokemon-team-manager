@@ -35,22 +35,35 @@ export const fillPokedex = (pokemon) => {
 				const listItem = button.closest('.poke-card');
 				
 				if (championsList.childElementCount < 3) {
-					const clonedListItem = listItem.cloneNode(true); // Clone the listItem
-					championsList.append(clonedListItem);
-				
-					const clonedButton = clonedListItem.querySelector('.promote');
-					clonedButton.innerText = 'Kick';
-					clonedButton.classList.remove('promote');
-					clonedButton.classList.add('kick');
+					if(listItem){
+						const clonedListItem = listItem.cloneNode(true); // Clone the listItem
+						championsList.append(clonedListItem);
+					
+						const clonedButton = clonedListItem.querySelector('.promote');
+						clonedButton.innerText = 'Kick';
+						clonedButton.classList.remove('promote');
+						clonedButton.classList.add('kick');
+						
+						clonedButton.addEventListener('click', () => {
+								pokemonList.append(clonedListItem)
+								clonedButton.innerText = 'Promote';
+								clonedButton.classList.remove('kick');
+								clonedButton.classList.add('promote');
+								clonedListItem.innerHTML += '<p>clone</p>'
+							})
 
-					//click event for clone. fix so that it kan be added again later without making another clone
-					clonedButton.addEventListener('click', () => {
-						pokemonList.append(clonedListItem)
-						clonedButton.innerText = 'Promote';
-						clonedButton.classList.remove('kick');
-						clonedButton.classList.add('promote');
-						clonedListItem.innerHTML += '<p>clone</p>'
-					})
+						} else if (clonedListItem){
+							const clonedButton = clonedListItem.querySelector('.promote');
+
+							clonedButton.addEventListener('click', () => {
+								championsList.append(clonedListItem)
+								clonedButton.innertext = 'Kick';
+								clonedButton.classList.remove('promote');
+								clonedButton.classList.add('kick');
+								console.log('halloj');
+							})		
+					}
+
 				} 
 				//if team has 3 adding more is prevented
 				else {
