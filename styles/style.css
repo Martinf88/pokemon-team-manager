@@ -55,6 +55,9 @@ button {
 	display: none;
 }
 
+.invisible {
+	visibility: hidden;
+}
 
 .header {
 	display: flex;
@@ -140,6 +143,11 @@ button {
 	letter-spacing: 0.25em;
 }
 
+.team-is-full {
+	color: red;
+	letter-spacing: 0.1em;
+}
+
 .pokedex {
 	padding-inline-start: 0;
 	list-style-type: none;
@@ -189,6 +197,11 @@ button {
 
 .promote, .kick{
 	margin: 0 0 1em;
+}
+
+
+.promote:disabled {
+    background-color: #ccc;
 }
 
 .nickname-input {
