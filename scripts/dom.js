@@ -1,4 +1,4 @@
-const pokemonList = document.querySelector('#pokemon-list')
+const reserveList = document.querySelector('#reserve-list')
 const championsList = document.querySelector('#champions-list')
 const searchPokemon = document.querySelector('#search-pokemon')
 export const startAdventure = document.querySelector('.start-adventure')
@@ -9,53 +9,54 @@ const enterTeamName = document.querySelector('#enter-team-name')
 const teamName = document.querySelector('.team-name')
 const toggleView = document.querySelectorAll('.toggle-view')
 
-function createPokemonCard(pokemon, buttonClass, buttonText) {
+// Returnerar en sträng med HTML för en pokemon
+function createPokemonCard(pokemon, promoteKickBtn, promoteKickBtnText) {
 	return`
-		<li class="poke-card">
+		<pokemonCardLi class="poke-card">
 			<img class="card-image" src="${pokemon.image}"/>
 			<h2 class="card-title">${pokemon.id}, ${pokemon.name}</h2>
 			<p class="card-subtitle">Type: ${pokemon.type}</p>
 			<input type="text" class="nickname-input" placeholder="Enter nickname">
             <button class="btn save-nickname">Save Nickname</button>
-			<button class="btn ${buttonClass}">${buttonText}</button>
-		</li>`;
+			<button class="btn ${promoteKickBtn}">${promoteKickBtnText}</button>
+		</pokemonCardLi>`;
 }
 
-export const fillPokedex = (pokemon) => {
-	pokemon.forEach(pokemon => {
-		let buttonClass = 'promote';
-		let buttonText = 'Promote';
+export const fillPokedex = (pokemonList) => {
+	pokemonList.forEach(pokemon => {
+		let promoteKickBtn = 'promote';
+		let promoteKickBtnText = 'Promote';
 		if (championsList.childElementCount < 3) {
-			buttonClass = 'kick';
-			buttonText = 'Kick';
+			promoteKickBtn = 'kick';
+			promoteKickBtnText = 'Kick';
 		}
-		const li = createPokemonCard(pokemon, buttonClass, buttonText);
+		const pokemonCardLi = createPokemonCard(pokemon, promoteKickBtn, promoteKickBtnText);
 		if(championsList.childElementCount < 3) {
-			championsList.innerHTML += li;
+			championsList.innerHTML += pokemonCardLi;
 		} else {
-			pokemonList.innerHTML += li;
+			reserveList.innerHTML += pokemonCardLi;
 		}
 		});
 
 		attachButtonHandlers();
 		attachNicknameHandlers();
 	}
-	
+	// Hanterar klick på knapparna för att ge smeknamn till pokemon
 	function attachNicknameHandlers() {
-		const saveNickname = document.querySelectorAll('.save-nickname');
+		const saveNicknameBtn = document.querySelectorAll('.save-nickname');
 
-		saveNickname.forEach(button => {
-			button.addEventListener('click', () => {
-				const listItem = button.closest('.poke-card');
-				const nicknameInput = listItem.querySelector('.nickname-input');
-				const cardTitle = listItem.querySelector('.card-title');
+		saveNicknameBtn.forEach(saveBtn => {
+			saveBtn.addEventListener('click', () => {
+				const pokemonCard = saveBtn.closest('.poke-card');
+				const nicknameInput = pokemonCard.querySelector('.nickname-input');
+				const cardTitle = pokemonCard.querySelector('.card-title');
 
 				cardTitle.innerText = nicknameInput.value;
 				nicknameInput.value = '';
 			})
 		})
 	}
-
+	// Hanterar klick på knapparna för att flytta pokemon mellan listorna
 	function attachButtonHandlers() {
 		const promoteButtons = document.querySelectorAll('.promote');
 		const kickButtons = document.querySelectorAll('.kick');
@@ -73,58 +74,58 @@ export const fillPokedex = (pokemon) => {
 
 
 	
-
-	function createPromoteHandler(button) {
+	
+	function createPromoteHandler(promoteButton) {
 		const promoteHandler = (event) => {
-			const listItem = button.closest('.poke-card');
+			const pokemonCard = promoteButton.closest('.poke-card');
 				if (championsList.childElementCount < 3) {
-					let listItemToMove;
-					if (listItem.isClone) {
-						listItemToMove = listItem;
+					let pokemonCardToMove;
+					if (pokemonCard.isClone) {
+						pokemonCardToMove = pokemonCard;
 					} else {
-						listItemToMove = listItem.cloneNode(true);
-						listItemToMove.isClone = true;
-						// listItemToMove.append(document.createTextNode(" (Clone)"));
+						pokemonCardToMove = pokemonCard.cloneNode(true);
+						pokemonCardToMove.isClone = true;
+						// pokemonCardToMove.append(document.createTextNode(" (Clone)"));
 					}
 	
-					championsList.append(listItemToMove);
+					championsList.append(pokemonCardToMove);
 	
-					const buttonToMove = listItemToMove.querySelector('.promote');
-					buttonToMove.innerText = 'Kick';
-					buttonToMove.classList.remove('promote');
-					buttonToMove.classList.add('kick');
+					const kickBtn = pokemonCardToMove.querySelector('.promote');
+					kickBtn.innerText = 'Kick';
+					kickBtn.classList.remove('promote');
+					kickBtn.classList.add('kick');
 	
-					buttonToMove.removeEventListener('click', promoteHandler);
-					buttonToMove.addEventListener('click', createKickHandler(buttonToMove));
+					kickBtn.removeEventListener('click', promoteHandler);
+					kickBtn.addEventListener('click', createKickHandler(kickBtn));
 
 					attachNicknameHandlers();
 				} else {
 
-					showTeamIsFullMessage(listItem);
+					showTeamIsFullMessage(pokemonCard);
 				}
 		};
 	
 		return promoteHandler;
 	}
 
-	function showTeamIsFullMessage(listItem) {
+	function showTeamIsFullMessage(pokemonCard) {
 		// Check if a 'teamIsFull' element already exists
 		const teamIsFull = document.createElement('p');
-		if (!listItem.querySelector('.teamIsFull')) {
+		if (!pokemonCard.querySelector('.teamIsFull')) {
 			teamIsFull.className = 'teamIsFull'; // Add a class for easy reference
 			teamIsFull.innerText = 'Your team is at full capacity';
 			teamIsFull.style.color = 'red';
-			listItem.appendChild(teamIsFull);
+			pokemonCard.appendChild(teamIsFull);
 			setTimeout(() => {
-				listItem.removeChild(teamIsFull);
+				pokemonCard.removeChild(teamIsFull);
 			}, 1000);
 		}
 	}
 	
 	function createKickHandler(button) {
 		const kickHandler = (event) => {
-			const listItem = button.closest('.poke-card');
-			pokemonList.append(listItem);
+			const pokemonCard = button.closest('.poke-card');
+			reserveList.append(pokemonCard);
 			button.innerText = 'Promote';
 			button.classList.remove('kick');
 			button.classList.add('promote');
