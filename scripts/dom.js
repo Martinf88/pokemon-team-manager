@@ -19,6 +19,7 @@ function createPokemonCard(pokemon, promoteKickBtn, promoteKickBtnText) {
 			<input type="text" class="nickname-input" placeholder="Enter nickname">
             <button class="btn save-nickname">Save Nickname</button>
 			<button class="btn ${promoteKickBtn}">${promoteKickBtnText}</button>
+			<p class="teamIsFull">Your team is full</p>
 		</pokemonCardLi>`;
 }
 
@@ -108,17 +109,22 @@ export const fillPokedex = (pokemonList) => {
 		return promoteHandler;
 	}
 
+	let isTeamFullMessageShown = false;
+
 	function showTeamIsFullMessage(pokemonCard) {
-		// Check if a 'teamIsFull' element already exists
-		const teamIsFull = document.createElement('p');
-		if (!pokemonCard.querySelector('.teamIsFull')) {
+		
+		if (!isTeamFullMessageShown) {
+			const teamIsFull = document.createElement('p');
 			teamIsFull.className = 'teamIsFull'; // Add a class for easy reference
-			teamIsFull.innerText = 'Your team is at full capacity';
+			teamIsFull.innerText = 'Your team is full';
 			teamIsFull.style.color = 'red';
 			pokemonCard.appendChild(teamIsFull);
+			isTeamFullMessageShown = true;
+
 			setTimeout(() => {
 				pokemonCard.removeChild(teamIsFull);
-			}, 1000);
+				isTeamFullMessageShown = false;
+			}, 800);
 		}
 	}
 	
