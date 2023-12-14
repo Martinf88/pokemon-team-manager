@@ -14,6 +14,7 @@
 	<!-- script-files -->
 	<script type="module" src="scripts/dom.js"></script>
 	<script type="module" src="scripts/fetching.js"></script>
+	<script type="module" src="scripts/eventHandlers.js"></script>
 
 	<title>Pokémon team manager</title>
 </head>
@@ -33,6 +34,7 @@
 		<!-- button to switch view to pokédex view where you can search for pokémon -->
 		<div class="btn-container">
 			<button class="btn toggle-view">Pokédex screen</button>
+			<p class="champ-message-box"></p>
 		</div>
 		<h2 class="team-name">Team: </h2>
 		
@@ -48,11 +50,12 @@
 		<nav class="navbar">
 			<button class="btn toggle-view">Champions screen</button>
 			<input id="search-pokemon" type="search" placeholder="search">
+			<p class="dex-message-box">message here:</p>
 		</nav>
 		<h2 class="pokedex-title">Pokedex</h2>
 		<p class="confirm-message"></p>
 		<!-- pokémon reserve list. img, name, id, type, button to add pokemon to champions-->
-		<ol id="reserve-list" class="pokedex"></ol>
+		<ol id="pokedex-list"></ol>
 	</section>
 </body>
 </html>

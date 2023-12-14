@@ -148,7 +148,7 @@ button {
 	letter-spacing: 0.1em;
 }
 
-.pokedex {
+#pokedex-list {
 	padding-inline-start: 0;
 	list-style-type: none;
 	display: grid;
@@ -187,11 +187,11 @@ button {
 	margin: auto;
 }
 
-.card-title {
+.pokemon-name, .pokemon-id {
 	color: var(--clr-blue);
 }
 
-.card-subtitle {
+.pokemon-type {
 	color: grey;
 }
 

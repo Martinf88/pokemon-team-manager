@@ -1,6 +1,5 @@
-const pokedex = document.querySelector('#reserve-list')
-const championsList = document.querySelector('#champions-list')
-const searchPokemon = document.querySelector('#search-pokemon')
+import { addMoveEventListener } from './eventHandlers.js';
+
 export const startAdventure = document.querySelector('.start-adventure')
 const firstContainer = document.querySelector('.first')
 const secondContainer = document.querySelector('.second')
@@ -8,155 +7,38 @@ const thirdContainer = document.querySelector('.third')
 const enterTeamName = document.querySelector('#enter-team-name')
 const teamName = document.querySelector('.team-name')
 const toggleView = document.querySelectorAll('.toggle-view')
+const searchPokemon = document.querySelector('#search-pokemon');
 
-// Returnerar en sträng med HTML för en pokemon
-function createPokemonCard(pokemon, promoteKickBtn, promoteKickBtnText) {
-	return`
-		<pokemonCardLi class="poke-card">
-			<img class="card-image" src="${pokemon.image}"/>
-			<h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
-			<p class="card-subtitle">Type: ${pokemon.type}</p>
-			<input type="text" class="nickname-input" placeholder="Enter nickname">
-            <button class="btn save-nickname">Save Nickname</button>
-			<button class="btn ${promoteKickBtn}">${promoteKickBtnText}</button>
-			<p class="team-is-full invisible">Your team is full</p>
-		</pokemonCardLi>`;
-}
+
 
 export const fillPokedex = (pokemonData) => {
-	pokemonData.forEach(pokemon => {
-		let promoteKickBtn = 'promote';
-		let promoteKickBtnText = 'Promote';
-		if (championsList.childElementCount < 3) {
-			promoteKickBtn = 'kick';
-			promoteKickBtnText = 'Kick';
-		}
-		const pokemonCardLi = createPokemonCard(pokemon, promoteKickBtn, promoteKickBtnText);
-		if(championsList.childElementCount < 3) {
-			championsList.innerHTML += pokemonCardLi;
+	const pokedexList = document.querySelector('#pokedex-list');
+	const championsList = document.querySelector('#champions-list');
+
+	pokemonData.forEach((pokemon, index) => {
+		const pokemonCard = document.createElement('li');
+		pokemonCard.classList.add('poke-card');
+		pokemonCard.innerHTML = `
+			<img src="${pokemon.image}" alt="${pokemon.name}" />
+			<h2 class="pokemon-id">${pokemon.id}. <span class="pokemon-name">${pokemon.name}</span></h2>
+			<p class="pokemon-type">Type: ${pokemon.type}</p>
+			<input type="text" class="nickname-input" placeholder="Enter nickname">
+			<button class="btn save-nickname">Save Nickname</button>
+			<button class="btn move-pokemon"></button>
+		`;
+
+		if (index < 3) {
+			championsList.appendChild(pokemonCard);
+			pokemonCard.querySelector('.move-pokemon').innerText = 'Kick';
 		} else {
-			pokedex.innerHTML += pokemonCardLi;
+			pokedexList.appendChild(pokemonCard);
+			pokemonCard.querySelector('.move-pokemon').innerText = 'Promote';
 		}
-		});
 
-		attachButtonHandlers();
-		attachNicknameHandlers();
-	}
-	// Hanterar klick på knapparna för att ge smeknamn till pokemon
-	function attachNicknameHandlers() {
-		pokedex.addEventListener('click', (event) => {
-			if (!event.target.matches('.save-nickname')) {
-				return;
-			}
-			const saveBtn = event.target;
-			const pokemonCard = saveBtn.closest('.poke-card');
-			const nicknameInput = pokemonCard.querySelector('.nickname-input');
-			const cardTitle = pokemonCard.querySelector('.card-title');
+		addMoveEventListener(pokemonCard, pokedexList, championsList);
 
-			cardTitle.innerText = nicknameInput.value;
-			nicknameInput.value = '';
-		})
-	}
-	// Hanterar klick på knapparna för att flytta pokemon mellan listorna
-	function attachButtonHandlers() {
-		const promoteButtons = document.querySelectorAll('.promote');
-		const kickButtons = document.querySelectorAll('.kick');
-	
-		promoteButtons.forEach(button => {
-			button.addEventListener('click', createPromoteHandler(button));
-		});
-		
-	
-		kickButtons.forEach(button => {
-			button.addEventListener('click', createKickHandler(button));
-		});
-
-	}		
-
-
-	
-	
-	function createPromoteHandler(promoteButton) {
-		const promoteHandler = (event) => {
-			const pokemonCard = promoteButton.closest('.poke-card');
-			const pokemonName = pokemonCard.querySelector('.card-title').innerText;
-			if (championsList.childElementCount < 3) {
-					let pokemonCardToMove;
-					if (pokemonCard.isClone) {
-						pokemonCardToMove = pokemonCard;
-					} else {
-						pokemonCardToMove = pokemonCard.cloneNode(true);
-						pokemonCardToMove.isClone = true;
-						promoteButton.disabled = true;
-						setTimeout(() => {
-							promoteButton.disabled = false;
-						}, 1000);
-						// pokemonCardToMove.append(document.createTextNode(" (Clone)"));
-					}
-	
-					championsList.append(pokemonCardToMove);
-
-					const kickBtn = pokemonCardToMove.querySelector('.promote');
-					kickBtn.innerText = 'Kick';
-					kickBtn.classList.remove('promote');
-					kickBtn.classList.add('kick');
-	
-					kickBtn.removeEventListener('click', promoteHandler);
-					kickBtn.addEventListener('click', createKickHandler(kickBtn));
-
-					attachNicknameHandlers();
-
-					showTeamIsFullMessage(pokemonCard, `${pokemonName} is now a champion!`)
-
-				} else {
-					showTeamIsFullMessage(pokemonCard, 'Your team is full');
-				}
-		};
-		return promoteHandler;
-	}
-	
-	function showTeamIsFullMessage(pokemonCard, message) {
-		const teamIsFull = pokemonCard.querySelector('.team-is-full');
-		teamIsFull.innerText = message;
-		if (teamIsFull.classList.contains('invisible')) {
-			teamIsFull.classList.remove('invisible');
-
-			setTimeout(() => {
-				teamIsFull.classList.add('invisible');
-			}, 1000);
-		}
-	}
-	
-	function createKickHandler(button) {
-		const kickHandler = (event) => {
-			const pokemonCard = button.closest('.poke-card');
-			pokedex.append(pokemonCard);
-			button.innerText = 'Promote';
-			button.classList.remove('kick');
-			button.classList.add('promote');
-	
-			button.removeEventListener('click', kickHandler);
-			button.addEventListener('click', createPromoteHandler(button));
-		};
-	
-		return kickHandler;
-	}
-
-	//POKEDEX SEARCH FUNCTION
-	searchPokemon.addEventListener('input', () => {
-		
-		const searchTerm = searchPokemon.value.toUpperCase();
-		const pokeCards = document.querySelectorAll('.poke-card');
-
-		pokeCards.forEach(pokeCard => {
-			if (pokeCard.querySelector('.card-title').innerText.toUpperCase().includes(searchTerm)){
-				pokeCard.style.display = 'block';
-			} else {
-				pokeCard.style.display = 'none';
-			}
-		})
-	}); 
-	
+	});
+}
 
 
 
@@ -195,3 +77,26 @@ toggleView.forEach(button => {
 		}
 	})
 })
+
+//POKEDEX SEARCH FUNCTION
+
+searchPokemon.addEventListener('input', () => {
+
+});
+
+
+
+
+//POKEDEX SEARCH FUNCTION
+searchPokemon.addEventListener('input', () => {
+    const searchTerm = searchPokemon.value.toUpperCase();
+    const pokeCards = document.querySelectorAll('.poke-card');
+
+    pokeCards.forEach(pokeCard => {
+        if (pokeCard.querySelector('.pokemon-name').innerText.toUpperCase().includes(searchTerm)){
+            pokeCard.style.display = 'block';
+        } else {
+            pokeCard.style.display = 'none';
+        }
+    })
+});
