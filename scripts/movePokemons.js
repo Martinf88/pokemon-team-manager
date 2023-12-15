@@ -18,15 +18,18 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
             clonedCard.querySelector('.move-pokemon').innerText = 'Kick';
             championsList.appendChild(clonedCard);
             addMoveEventListener(clonedCard, pokedexList, championsList); 
-
+			
 			dexMessageBox.innerText = `${pokemonName} was promoted!`;		
+			
         } else if(pokemonCard.classList.contains('clone')) {
 			championsList.removeChild(pokemonCard);
 			champMessageBox.innerText = `${pokemonName} was deleted!`;
+
 		} else if (pokemonCard.parentNode === championsList || championsList.childElementCount < 3) {
             moveButton.innerText = 'Promote';
             pokedexList.appendChild(pokemonCard);
             champMessageBox.innerText = `${pokemonName} was moved to pokedex!`;
+
         } else {
 			dexMessageBox.innerText = 'Champion limit reached!';
 		}

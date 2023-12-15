@@ -28,6 +28,13 @@ export const fillPokedex = (pokemonData) => {
 			<button class="btn save-nickname">Save Nickname</button>
 			<button class="btn move-pokemon"></button>
 		`;
+		//EXTRA CONTENT COMING IN THE FUTURE
+
+		// if (index < 3) {
+		// 	pokemonCard.innerHTML += `<button class="btn move-pokemon"></button>
+		// 	<input type="text" class="nickname-input" placeholder="Enter nickname">`
+		// }
+		//EXTRA CONTENT COMING IN THE FUTURE
 		
 		if (index < 3) {
 			championsList.appendChild(pokemonCard);
@@ -36,13 +43,16 @@ export const fillPokedex = (pokemonData) => {
 			pokedexList.appendChild(pokemonCard);
 			pokemonCard.querySelector('.move-pokemon').innerText = 'Promote';
 		}
+
+		
 		
 		giveNickname(pokemonCard)
 		addMoveEventListener(pokemonCard, pokedexList, championsList);
-
+		resetName(pokemonCard, pokemon)
 	});
 }
 
+// Enables user to name their pokemons
 function giveNickname(pokemonCard) {
 		const saveNicknameButton = pokemonCard.querySelector('.save-nickname');
         const nicknameInput = pokemonCard.querySelector('.nickname-input');
@@ -53,7 +63,20 @@ function giveNickname(pokemonCard) {
             if (nickname !== '') {
                 pokemonNameElement.innerText = nickname;
             }
+			nicknameInput.value = '';
         });
+
+}
+
+function resetName(pokemonCard, pokemon) {
+	//Reset nickname to original name
+	const resetNamesBtn = document.querySelector('.reset-names-btn')
+	const pokemonName = pokemonCard.querySelector('.pokemon-name');
+
+
+	resetNamesBtn.addEventListener('click', () => {
+		pokemonName.innerText = pokemon.name;
+	})
 }
 
 
