@@ -136,6 +136,10 @@ button {
 	margin-top: 1em;
 }
 
+.reserver {
+	text-align: center;
+	margin-top: 2em;
+}
 .btn-container {
 	display: flex;
 	justify-content: center;

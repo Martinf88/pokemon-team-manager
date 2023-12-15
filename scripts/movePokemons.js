@@ -1,5 +1,6 @@
 const dexMessageBox = document.querySelector('.dex-message-box');
 const champMessageBox = document.querySelector('.champ-message-box');
+const reserveList = document.querySelector('.reserve-list')
 
 dexMessageBox.classList.add('invisible')
 champMessageBox.classList.add('invisible')
@@ -31,7 +32,9 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
             champMessageBox.innerText = `${pokemonName} was moved to pokedex!`;
 
         } else {
+			const clonedCard = pokemonCard.cloneNode(true);
 			dexMessageBox.innerText = 'Champion limit reached!';
+			reserveList.appendChild(clonedCard)
 		}
 		setTimeout(() => {
 			// champMessageBox.innerText = '';
