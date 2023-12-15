@@ -140,6 +140,10 @@ button {
 	text-align: center;
 	margin-top: 2em;
 }
+
+.reserve-list{
+	
+}
 .btn-container {
 	display: flex;
 	justify-content: center;
