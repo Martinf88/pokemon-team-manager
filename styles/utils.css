@@ -48,7 +48,6 @@
 	color: var(--clr-light);
 	padding: 0.5em 1em;
 	border-radius: 6px;
-	margin-top: 1em;
 	transition: box shadow 0.3s;
 }
 

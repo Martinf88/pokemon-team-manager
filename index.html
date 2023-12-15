@@ -19,6 +19,12 @@
 	<title>Pokémon team manager</title>
 </head>
 <body>
+
+	<nav class="navbar">
+		<button class="btn toggle-view">Pokédex screen</button>
+		<button class="btn toggle-view">Champions screen</button>
+		<input id="search-pokemon" type="search" placeholder="search">
+	</nav>
 	<!-- Start page for when you first enter the site -->
 	<section class="container first">
 		<header class="header">
@@ -31,28 +37,18 @@
 
 	<!-- Page displaying your team of 3 choosen pokemon -->
 	<section class="container second">
-		<!-- button to switch view to pokédex view where you can search for pokémon -->
-		<div class="btn-container">
-			<button class="btn toggle-view">Pokédex screen</button>
-			<p class="champ-message-box"></p>
-		</div>
 		<h2 class="team-name">Team: </h2>
+		<p class="champ-message-box message"></p>
 		
 		<!-- List with three champions -->
-		<ol id="champions-list">
-		</ol>
-
+		<ol id="champions-list"></ol>
 	</section>
 
 	<!-- Pokédex view where you can search for pokémon and add to your team -->
 	<section class="container third">
-
-		<nav class="navbar">
-			<button class="btn toggle-view">Champions screen</button>
-			<input id="search-pokemon" type="search" placeholder="search">
-			<p class="dex-message-box">message here:</p>
-		</nav>
 		<h2 class="pokedex-title">Pokedex</h2>
+		<p class="dex-message-box message">message here:</p>
+		
 		<p class="confirm-message"></p>
 		<!-- pokémon reserve list. img, name, id, type, button to add pokemon to champions-->
 		<ol id="pokedex-list"></ol>

@@ -8,6 +8,7 @@ const enterTeamName = document.querySelector('#enter-team-name')
 const teamName = document.querySelector('.team-name')
 const toggleView = document.querySelectorAll('.toggle-view')
 const searchPokemon = document.querySelector('#search-pokemon');
+const navbar = document.querySelector('.navbar')
 
 
 
@@ -44,6 +45,7 @@ export const fillPokedex = (pokemonData) => {
 
 // START ADVENTURE -- PICK A TEAM NAME 
 
+navbar.classList.add('hidden')
 secondContainer.classList.add('hidden')
 thirdContainer.classList.add('hidden')
 
@@ -59,6 +61,7 @@ startAdventure.addEventListener('click', (event) => {
 		teamName.innerText += textValue
 		firstContainer.classList.add('hidden')
 		secondContainer.classList.remove('hidden')
+		navbar.classList.remove('hidden')
 	} else {
 		//uppmana användaren till att skriva in ett lagnamn
 	}
@@ -77,15 +80,6 @@ toggleView.forEach(button => {
 		}
 	})
 })
-
-//POKEDEX SEARCH FUNCTION
-
-searchPokemon.addEventListener('input', () => {
-
-});
-
-
-
 
 //POKEDEX SEARCH FUNCTION
 searchPokemon.addEventListener('input', () => {

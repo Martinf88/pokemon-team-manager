@@ -8,7 +8,6 @@
 	--clr-blue: #0075BE;
 	--clr-darkblue: #0A285F;
 	--clr-red: #FF0000;
-
 	/* --clr-red: rgb(255, 0, 0) */
 	/* --clr-darkgold 	rgb(213, 161, 0) */
 }
@@ -108,8 +107,22 @@ button {
 	opacity: 1;
 }
 
+/* .first, .second, .third {
+	display: flex;
+	flex-direction: column;
+} */
+
 
 /* code for chosen champions starts here */
+
+.message {
+	text-align: center;
+	color: var(--clr-gold);
+	/* background-color: var(--clr-dark); */
+	font-size: 1.5rem;
+	letter-spacing: 0.12em;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+}
 
 .team-name {
 /* hitta ett sätt att centrera h2 elementet */
@@ -120,7 +133,7 @@ button {
 	border-top: dashed var(--clr-gold);
 	border-bottom: dashed var(--clr-gold);
 	text-align: center;
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 .btn-container {
@@ -128,10 +141,26 @@ button {
 	justify-content: center;
 }
 
+.move-pokemon {
+	margin: 1em 0 1em;
+}
+
+.save-nickname {
+	margin-top: 1em;
+}
+
 .navbar{
 	text-align: center;
 	padding: 1em;
-	margin-top: 0;
+	background-color: var(--clr-darkblue);
+}
+
+#search-pokemon {
+	margin-left: 1em;
+}
+
+#toggle-view {
+	
 }
 
 
