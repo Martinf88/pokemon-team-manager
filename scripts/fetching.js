@@ -1,8 +1,7 @@
-import { startAdventure } from "./dom.js";
 import { fillPokedex } from "./dom.js";
 
 const promises = [];
-const fetchPokemon = async () => {
+export const fetchPokemon = async () => {
 	
 	for (let i = 1; i <= 6; i++) {
 		const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
@@ -26,10 +25,5 @@ const fetchPokemon = async () => {
 		console.log(error.message);
 	}
 }
-
-
-startAdventure.addEventListener('click', () => {
-	fetchPokemon()
-})
 
 

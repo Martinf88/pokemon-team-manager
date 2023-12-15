@@ -1,5 +1,5 @@
-import { addMoveEventListener } from './eventHandlers.js';
-
+import { addMoveEventListener } from './movePokemons.js';
+import { fetchPokemon } from "./fetching.js";
 export const startAdventure = document.querySelector('.start-adventure')
 const firstContainer = document.querySelector('.first')
 const secondContainer = document.querySelector('.second')
@@ -9,6 +9,7 @@ const teamName = document.querySelector('.team-name')
 const toggleView = document.querySelectorAll('.toggle-view')
 const searchPokemon = document.querySelector('#search-pokemon');
 const navbar = document.querySelector('.navbar')
+const enterTeamNamePromt = document.querySelector('.enter-team-name-prompt')
 
 
 
@@ -48,6 +49,7 @@ export const fillPokedex = (pokemonData) => {
 navbar.classList.add('hidden')
 secondContainer.classList.add('hidden')
 thirdContainer.classList.add('hidden')
+enterTeamNamePromt.classList.add('invisible')
 
 // start image clicked: hide start screen and show team visualViewport
 
@@ -62,9 +64,15 @@ startAdventure.addEventListener('click', (event) => {
 		firstContainer.classList.add('hidden')
 		secondContainer.classList.remove('hidden')
 		navbar.classList.remove('hidden')
+		fetchPokemon()
 	} else {
 		//uppmana användaren till att skriva in ett lagnamn
+		enterTeamNamePromt.classList.remove('invisible')
+
 	}
+	setTimeout(() => {
+		enterTeamNamePromt.classList.add('invisible')
+	}, 1500);
 })
 
 
@@ -94,3 +102,5 @@ searchPokemon.addEventListener('input', () => {
         }
     })
 });
+
+

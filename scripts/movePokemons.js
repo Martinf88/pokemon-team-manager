@@ -30,4 +30,3 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
 		}, 1500);
     });
 }
-
