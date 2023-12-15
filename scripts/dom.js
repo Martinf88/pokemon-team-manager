@@ -28,7 +28,7 @@ export const fillPokedex = (pokemonData) => {
 			<button class="btn save-nickname">Save Nickname</button>
 			<button class="btn move-pokemon"></button>
 		`;
-
+		
 		if (index < 3) {
 			championsList.appendChild(pokemonCard);
 			pokemonCard.querySelector('.move-pokemon').innerText = 'Kick';
@@ -36,10 +36,24 @@ export const fillPokedex = (pokemonData) => {
 			pokedexList.appendChild(pokemonCard);
 			pokemonCard.querySelector('.move-pokemon').innerText = 'Promote';
 		}
-
+		
+		giveNickname(pokemonCard)
 		addMoveEventListener(pokemonCard, pokedexList, championsList);
 
 	});
+}
+
+function giveNickname(pokemonCard) {
+		const saveNicknameButton = pokemonCard.querySelector('.save-nickname');
+        const nicknameInput = pokemonCard.querySelector('.nickname-input');
+        const pokemonNameElement = pokemonCard.querySelector('.pokemon-name');
+
+        saveNicknameButton.addEventListener('click', () => {
+            const nickname = nicknameInput.value.trim();
+            if (nickname !== '') {
+                pokemonNameElement.innerText = nickname;
+            }
+        });
 }
 
 
