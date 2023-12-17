@@ -167,10 +167,6 @@ button {
 	margin-left: 1em;
 }
 
-#toggle-view {
-	
-}
-
 
 .pokedex-title {
 	text-align: center;
@@ -185,17 +181,7 @@ button {
 	letter-spacing: 0.1em;
 }
 
-#pokedex-list {
-	padding-inline-start: 0;
-	list-style-type: none;
-	display: grid;
-	grid-template-columns: repeat(1, 200px);
-	justify-content: center;
-	gap: 1em;
-	margin: 4em 1em 0 1em;
-}
-
-#champions-list {
+#pokedex-list, #champions-list, #reserve-list {
 	padding-inline-start: 0;
 	list-style-type: none;
 	display: grid;

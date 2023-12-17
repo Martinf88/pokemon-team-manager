@@ -21,8 +21,8 @@
 <body>
 
 	<nav class="navbar">
-		<button class="btn toggle-view">Pokédex</button>
-		<button class="btn toggle-view">Your Champions</button>
+		<button class="btn pokedex-btn">Pokédex</button>
+		<button class="btn champions-btn">Your Champions</button>
 		<button class="btn reserve-btn">Reserve List</button>
 		<button class="reset-names-btn btn">Reset Names</button>
 		<input id="search-pokemon" type="search" placeholder="search">
@@ -41,6 +41,8 @@
 	<!-- Page displaying your team of 3 choosen pokemon -->
 	<section class="container second">
 		<h2 class="team-name">Team: </h2>
+		<p class="team-is-full message">Your team is full!</p>
+		<p class="team-is-not-full message">Your team has empty slots!</p>
 		<p class="champ-message-box message">message here:</p>
 		
 		<!-- List with three champions -->
@@ -59,7 +61,7 @@
 	
 	<section class="container fourth">
 		<h3 class="reserver">Reserver</h3>
-		<ol class="reserve-list"></ol>
+		<ol id="reserve-list"></ol>
 	</section>
 </body>
 </html>

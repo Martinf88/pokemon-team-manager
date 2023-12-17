@@ -7,11 +7,12 @@ const thirdContainer = document.querySelector('.third')
 const fourthContainer = document.querySelector('.fourth')
 const enterTeamName = document.querySelector('#enter-team-name')
 const teamName = document.querySelector('.team-name')
-const toggleView = document.querySelectorAll('.toggle-view')
 const searchPokemon = document.querySelector('#search-pokemon');
 const navbar = document.querySelector('.navbar')
 const enterTeamNamePromt = document.querySelector('.enter-team-name-prompt')
 const reserveBtn = document.querySelector('.reserve-btn')
+const pokedexBtn = document.querySelector('.pokedex-btn')
+const championsBtn = document.querySelector('.champions-btn')
 
 
 
@@ -19,9 +20,13 @@ export const fillPokedex = (pokemonData) => {
 	const pokedexList = document.querySelector('#pokedex-list');
 	const championsList = document.querySelector('#champions-list');
 
+
 	pokemonData.forEach((pokemon, index) => {
 		const pokemonCard = document.createElement('li');
 		pokemonCard.classList.add('poke-card');
+		if (index < 3) {
+			pokemonCard.classList.add('first-three');
+		}
 		pokemonCard.innerHTML = `
 			<img src="${pokemon.image}" alt="${pokemon.name}" />
 			<h2 class="pokemon-id">${pokemon.id}. <span class="pokemon-name">${pokemon.name}</span></h2>
@@ -116,21 +121,19 @@ startAdventure.addEventListener('click', (event) => {
 })
 
 
-toggleView.forEach(button => {
 
-	button.addEventListener('click', () => {
-		if (thirdContainer.classList.contains('hidden')){
-			secondContainer.classList.add('hidden')
-			thirdContainer.classList.remove('hidden')
-			fourthContainer.classList.add('hidden')
-		} else {
-			secondContainer.classList.remove('hidden')
-			thirdContainer.classList.add('hidden')
-			fourthContainer.classList.add('hidden')
-		}
-	})
+championsBtn.addEventListener('click', () => {
+	secondContainer.classList.remove('hidden')
+	thirdContainer.classList.add('hidden')
+	fourthContainer.classList.add('hidden')
 })
 
+pokedexBtn.addEventListener('click', () => {
+	thirdContainer.classList.remove('hidden')
+	secondContainer.classList.add('hidden')
+	fourthContainer.classList.add('hidden')
+
+})
 reserveBtn.addEventListener('click', () => {
 	fourthContainer.classList.remove('hidden')
 	secondContainer.classList.add('hidden')
