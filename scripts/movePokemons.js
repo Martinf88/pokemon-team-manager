@@ -4,7 +4,7 @@ const reserveList = document.querySelector('#reserve-list')
 const teamIsFull = document.querySelector('.team-is-full')
 const teamIsNotFull = document.querySelector('.team-is-not-full')
 
-teamIsFull.classList.add('invisible')
+
 teamIsNotFull.classList.add('invisible')
 dexMessageBox.classList.add('invisible')
 champMessageBox.classList.add('invisible')
@@ -23,28 +23,36 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
 			clonedCard.classList.remove('first-three')
             championsList.appendChild(clonedCard);
             addMoveEventListener(clonedCard, pokedexList, championsList); 
-            dexMessageBox.innerText = `${pokemonName} was promoted!`;     
+            dexMessageBox.innerText = `${pokemonName} was promoted!`;
+			updateTeamMessages(championsList.childElementCount);
             
         } else if (pokemonCard.parentNode === championsList) {
             if (!pokemonCard.classList.contains('first-three')) {
                 championsList.removeChild(pokemonCard);
                 champMessageBox.innerText = `${pokemonName} was deleted!`;
+				updateTeamMessages(championsList.childElementCount);
+
             } else {
                 moveButton.innerText = 'Promote';
                 pokedexList.appendChild(pokemonCard);
                 champMessageBox.innerText = `${pokemonName} was moved to pokedex!`;
+				updateTeamMessages(championsList.childElementCount);
+
             }
         } else if(pokemonCard.parentNode === reserveList && championsList.childElementCount < 3) {
             pokemonCard.querySelector('.move-pokemon').innerText = 'Kick';
             championsList.appendChild(pokemonCard);
             addMoveEventListener(pokemonCard, pokedexList, championsList); 
-            dexMessageBox.innerText = `${pokemonName} was promoted!`;        
+            dexMessageBox.innerText = `${pokemonName} was promoted!`;
+			updateTeamMessages(championsList.childElementCount);
+
         } else {
             const clonedCard = pokemonCard.cloneNode(true);
             dexMessageBox.innerText = `${pokemonName} was moved to reserves`;
 			teamIsFull.classList.remove('invisible')
             reserveList.appendChild(clonedCard);
-            addMoveEventListener(clonedCard, pokedexList, championsList); 
+            addMoveEventListener(clonedCard, pokedexList, championsList);
+			updateTeamMessages(championsList.childElementCount);
         }
 
         setTimeout(() => {
@@ -54,4 +62,15 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
             dexMessageBox.classList.add('invisible');
         }, 1500);
     });
+}
+
+
+function updateTeamMessages(championsCount) {
+    if (championsCount === 3) {
+        teamIsFull.classList.remove('invisible');
+        teamIsNotFull.classList.add('invisible');
+    } else {
+        teamIsFull.classList.add('invisible');
+        teamIsNotFull.classList.remove('invisible');
+    }
 }

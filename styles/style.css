@@ -23,13 +23,10 @@
 	line-height: calc(1em + 0.5rem);
 }
 
-html {
-	scroll-behavior: smooth;
-}
-
 body {
 	font-family: 'ArcadeClassic', sans-serif;
 	background-color: var(--clr-blue);
+	overflow-x: hidden;
 }
 
 img,
@@ -107,14 +104,7 @@ button {
 	opacity: 1;
 }
 
-/* .first, .second, .third {
-	display: flex;
-	flex-direction: column;
-} */
-
-
 /* code for chosen champions starts here */
-
 .message {
 	text-align: center;
 	color: var(--clr-gold);
@@ -124,8 +114,16 @@ button {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
 }
 
+.team-is-full {
+	color: red;
+	letter-spacing: 0.1em;
+	margin-top: 0.5em ;
+}
+
+.team-is-full, .team-is-not-full {
+}
+
 .team-name {
-/* hitta ett sätt att centrera h2 elementet */
 	color: var(--clr-gold);
 	font-size: 2.5em;
 	text-shadow: 5px 5px 4px rgba(213, 161, 0, 0.5);
@@ -141,9 +139,6 @@ button {
 	margin-top: 2em;
 }
 
-.reserve-list{
-	
-}
 .btn-container {
 	display: flex;
 	justify-content: center;
@@ -176,11 +171,6 @@ button {
 	letter-spacing: 0.25em;
 }
 
-.team-is-full {
-	color: red;
-	letter-spacing: 0.1em;
-}
-
 #pokedex-list, #champions-list, #reserve-list {
 	padding-inline-start: 0;
 	list-style-type: none;
@@ -188,7 +178,7 @@ button {
 	grid-template-columns: repeat(1, 200px);
 	justify-content: center;
 	gap: 1em;
-	margin: 4em 1em 0 1em;
+	margin: 2em 0 1em;
 }
 
 /* use this class to style all <li> elements */
