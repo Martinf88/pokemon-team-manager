@@ -1,3 +1,5 @@
+import { giveNickname } from "./dom.js";
+
 const dexMessageBox = document.querySelector('.dex-message-box');
 const champMessageBox = document.querySelector('.champ-message-box');
 const reserveList = document.querySelector('#reserve-list')
@@ -21,6 +23,7 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
             const clonedCard = pokemonCard.cloneNode(true);
             clonedCard.querySelector('.move-pokemon').innerText = 'Kick';
 			clonedCard.classList.remove('first-three')
+			giveNickname(clonedCard)
             championsList.appendChild(clonedCard);
             addMoveEventListener(clonedCard, pokedexList, championsList); 
             dexMessageBox.innerText = `${pokemonName} was promoted!`;
@@ -41,6 +44,7 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
             }
         } else if(pokemonCard.parentNode === reserveList && championsList.childElementCount < 3) {
             pokemonCard.querySelector('.move-pokemon').innerText = 'Kick';
+			giveNickname(pokemonCard);
             championsList.appendChild(pokemonCard);
             addMoveEventListener(pokemonCard, pokedexList, championsList); 
             dexMessageBox.innerText = `${pokemonName} was promoted!`;
@@ -48,6 +52,7 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
 
         } else {
             const clonedCard = pokemonCard.cloneNode(true);
+			giveNickname(clonedCard)
             dexMessageBox.innerText = `${pokemonName} was moved to reserves`;
 			teamIsFull.classList.remove('invisible')
             reserveList.appendChild(clonedCard);

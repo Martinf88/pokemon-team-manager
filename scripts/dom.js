@@ -60,7 +60,7 @@ export const fillPokedex = (pokemonData) => {
 }
 
 // Enables user to name their pokemons
-function giveNickname(pokemonCard) {
+export function giveNickname(pokemonCard) {
 		const saveNicknameButton = pokemonCard.querySelector('.save-nickname');
         const nicknameInput = pokemonCard.querySelector('.nickname-input');
         const pokemonNameElement = pokemonCard.querySelector('.pokemon-name');
