@@ -114,8 +114,9 @@ button {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
 }
 
-.team-is-full {
+.team-status-message {
 	color: red;
+	text-decoration: underline;
 	letter-spacing: 0.1em;
 	margin-top: 0.5em ;
 }

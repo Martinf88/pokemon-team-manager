@@ -35,13 +35,6 @@ export const fillPokedex = (pokemonData) => {
 			<button class="btn save-nickname">Save Nickname</button>
 			<button class="btn move-pokemon"></button>
 		`;
-		//EXTRA CONTENT COMING IN THE FUTURE
-
-		// if (index < 3) {
-		// 	pokemonCard.innerHTML += `<button class="btn move-pokemon"></button>
-		// 	<input type="text" class="nickname-input" placeholder="Enter nickname">`
-		// }
-		//EXTRA CONTENT COMING IN THE FUTURE
 		
 		if (index < 3) {
 			championsList.appendChild(pokemonCard);
