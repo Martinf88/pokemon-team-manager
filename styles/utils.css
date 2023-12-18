@@ -72,6 +72,7 @@
 	.container {
 		max-width: 350px;
 	}
+
 	.navbar {
 		max-width: 350px;
 	}
@@ -82,9 +83,11 @@
 	.container {
 		max-width: 475px;
 	}
+
 	.navbar {
 		max-width: 475px;
 	}
+
 }
 
 /* sm */
@@ -92,9 +95,15 @@
 	.container {
 		max-width: 640px;
 	}
+
 	.navbar {
 		max-width: 640px;
 	}
+
+	.navbar > button {
+		margin-top: 0;
+	}
+
 	#pokedex-list {
 		grid-template-columns: repeat(2, 200px);
 	}
@@ -102,6 +111,7 @@
 	#champions-list {
 		grid-template-columns: repeat(2, 200px);
 	}
+
 	#reserve-list {
 		grid-template-columns: repeat(2, 200px);
 	}
@@ -112,15 +122,23 @@
 	.container {
 		max-width: 768px;
 	}
+
 	.navbar {
 		max-width: 768px;
 	}
+
+	.navbar > * {
+		margin-top: 0;
+	}
+
 	#pokedex-list {
 		grid-template-columns: repeat(3, 200px);
 	}
+
 	#champions-list {
 		grid-template-columns: repeat(3, 200px);
 	}
+
 	#reserve-list {
 		grid-template-columns: repeat(3, 200px);
 	}
@@ -131,9 +149,15 @@
 	.container {
 		max-width: 1023px;
 	}
+
 	.navbar {
 		max-width: 1024px;
 	}
+
+	.navbar > * {
+		margin-top: 0;
+	}
+
 	#pokedex-list {
 		grid-template-columns: repeat(4, 200px);
 	}
@@ -145,9 +169,15 @@
 	.container {
 		max-width: 1280px;
 	}
+
 	.navbar {
 		max-width: 1280px;
 	}
+
+	.navbar > * {
+		margin-top: 0;
+	}
+
 	#pokedex-list {
 		grid-template-columns: repeat(5, 200px);
 	}
@@ -159,9 +189,15 @@
 	.container {
 		max-width: 1536px;
 	}
+
 	.navbar {
 		max-width: 1536px;
 	}
+
+	.navbar > * {
+		margin-top: 0;
+	}
+
 	#pokedex-list {
 		grid-template-columns: repeat(6, 200px);
 	}

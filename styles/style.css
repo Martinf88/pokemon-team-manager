@@ -158,8 +158,9 @@ button {
 	background-color: var(--clr-darkblue);
 }
 
-#search-pokemon {
+.navbar > * {
 	margin-left: 1em;
+	margin-top: 1em;
 }
 
 
