@@ -105,6 +105,14 @@ button {
 }
 
 /* code for chosen champions starts here */
+.champ-message-box, .dex-message-box, .reserve-message-box {
+	position: fixed;
+	background-color: var(--clr-darkblue);
+    left: 0;
+    right: 0;
+    /* margin: auto; */
+	z-index: 1;
+}
 .message {
 	text-align: center;
 	color: var(--clr-gold);
@@ -132,11 +140,6 @@ button {
 	margin-top: 1em;
 }
 
-.reserver {
-	text-align: center;
-	margin-top: 2em;
-}
-
 .btn-container {
 	display: flex;
 	justify-content: center;
@@ -162,11 +165,11 @@ button {
 }
 
 
-.pokedex-title {
+.pokedex-title, .reserver {
 	text-align: center;
 	margin-top: 1em;
 	color: var(--clr-red);
-	font-size: 3.5em;
+	font-size: 2.5em;
 	letter-spacing: 0.25em;
 }
 

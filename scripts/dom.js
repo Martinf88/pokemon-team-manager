@@ -35,6 +35,9 @@ export const fillPokedex = (pokemonData) => {
 			<button class="btn save-nickname">Save Nickname</button>
 			<button class="btn move-pokemon"></button>
 		`;
+
+		const pokemonNameElement = pokemonCard.querySelector('.pokemon-name');
+		pokemonNameElement.setAttribute('data-original-name', pokemon.name);
 		
 		if (index < 3) {
 			championsList.appendChild(pokemonCard);
@@ -68,15 +71,15 @@ export function giveNickname(pokemonCard) {
 
 }
 
-function resetName(pokemonCard, pokemon) {
-	//Reset nickname to original name
-	const resetNamesBtn = document.querySelector('.reset-names-btn')
-	const pokemonName = pokemonCard.querySelector('.pokemon-name');
+export function resetName(pokemonCard) {
+    //Reset nickname to original name
+    const resetNamesBtn = document.querySelector('.reset-names-btn')
+    const pokemonName = pokemonCard.querySelector('.pokemon-name');
 
-
-	resetNamesBtn.addEventListener('click', () => {
-		pokemonName.innerText = pokemon.name;
-	})
+    resetNamesBtn.addEventListener('click', () => {
+        const originalName = pokemonName.getAttribute('data-original-name');
+        pokemonName.innerText = originalName;
+    })
 }
 
 

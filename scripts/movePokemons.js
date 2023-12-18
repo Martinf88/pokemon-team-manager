@@ -1,5 +1,4 @@
-
-import { giveNickname } from "./dom.js";
+import { giveNickname, resetName } from "./dom.js";
 
 const reserveMessageBox = document.querySelector('.reserve-message-box');
 const dexMessageBox = document.querySelector('.dex-message-box');
@@ -19,6 +18,7 @@ function createNewPokemonCard(pokemonCard, list, buttonText) {
     giveNickname(clonedCard);
     list.appendChild(clonedCard);
     addMoveEventListener(clonedCard, pokedexList, championsList);
+	resetName(clonedCard);
 }
 
 function updateMessageBox(messageBox, message) {
