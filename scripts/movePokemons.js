@@ -37,6 +37,7 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
 
             } else {
                 moveButton.innerText = 'Promote';
+				pokemonCard.classList.remove('first-three');
                 pokedexList.appendChild(pokemonCard);
                 champMessageBox.innerText = `${pokemonName} was moved to pokedex!`;
 				updateTeamMessages(championsList.childElementCount);
@@ -50,7 +51,10 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
             dexMessageBox.innerText = `${pokemonName} was promoted!`;
 			updateTeamMessages(championsList.childElementCount);
 
-        } else {
+        } else if (pokemonCard.parentNode === reserveList && championsList.childElementCount >= 3) {
+			dexMessageBox.innerText = 'Champions list is full!'
+		}
+		else {
             const clonedCard = pokemonCard.cloneNode(true);
 			giveNickname(clonedCard)
             dexMessageBox.innerText = `${pokemonName} was moved to reserves`;
