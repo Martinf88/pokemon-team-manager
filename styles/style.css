@@ -121,9 +121,6 @@ button {
 	margin-top: 0.5em ;
 }
 
-.team-is-full, .team-is-not-full {
-}
-
 .team-name {
 	color: var(--clr-gold);
 	font-size: 2.5em;
@@ -195,15 +192,11 @@ button {
 	border-radius: 5px;
 }
 
-.poke-card > img,
-.poke-card > h3,
-.poke-card > p {
-	align-self: flex-start;
-	margin: auto;
-}
-
 .pokemon-name, .pokemon-id {
 	color: var(--clr-blue);
+	/* max-width: 100%; */
+	white-space: normal;
+	word-wrap: break-word;
 }
 
 .pokemon-type {
