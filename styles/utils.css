@@ -81,6 +81,7 @@
 	#pokedex-list, #champions-list, #reserve-list {
 		grid-template-columns: repeat(2, 200px);
 	}
+	
 }
 
 /* md */

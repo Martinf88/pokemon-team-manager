@@ -183,6 +183,9 @@ button {
 	letter-spacing: 0.11em;
 	border-radius: 8px;
 }	
+#search-pokemon {
+	margin-left: 2rem;
+}
 
 .pokedex-title, .reserver {
 	text-align: center;
