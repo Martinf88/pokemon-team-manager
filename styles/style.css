@@ -6,7 +6,7 @@
 	--clr-darkgold: #D5A100;
 	--clr-blue: #0075BE;
 	--clr-darkblue: #0A285F;
-	--clr-red: #FF0000;
+	--clr-red: #FF4500;
 
 	/* --clr-red: rgb(255, 0, 0) */
 	/* --clr-darkgold 	rgb(213, 161, 0) */
@@ -26,7 +26,7 @@
 body {
 	font-family: 'ArcadeClassic', sans-serif;
 	background-color: var(--clr-blue);
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 
 img,
@@ -50,6 +50,7 @@ button {
 /* two hide classes to use in JavaScript */
 .hidden {
 	display: none;
+	color:;
 }
 
 .invisible {
@@ -125,7 +126,7 @@ button {
 }
 
 .team-status-message {
-	color: red;
+	color: var(--clr-red);
 	text-decoration: underline;
 	letter-spacing: 0.1em;
 	margin-top: 0.5em ;
@@ -141,7 +142,7 @@ button {
 	text-align: center;
 	margin-top: 1em;
 }
-
+ /* onödig???? */
 .btn-container {
 	display: flex;
 	justify-content: center;
@@ -164,6 +165,16 @@ button {
 .navbar > * {
 	margin-left: 1em;
 	margin-top: 1em;
+}
+
+.reset-names-btn {
+	font-weight: 600;
+	letter-spacing: -0.05em;
+	background-color: var(--clr-darkgold);
+	color: var(--clr-darkblue);
+	padding: 0.5em 1em;
+	border-radius: 6px;
+	transition: box shadow 0.3s;
 }
 
 

@@ -6,7 +6,7 @@
 	--clr-darkgold: #D5A100;
 	--clr-blue: #0075BE;
 	--clr-darkblue: #0A285F;
-	--clr-red: #FF0000;
+	--clr-red: #FF4500;
 
 	/* --clr-red: rgb(255, 0, 0) */
 }
@@ -34,7 +34,6 @@
 	margin-right: auto;
 	/* padding-left: 0.5rem;
 	padding-right: 0.5rem; */
-	border: 1px solid red;
 }
 
 /* xxs */
