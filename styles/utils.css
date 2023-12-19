@@ -73,15 +73,7 @@
 		margin-top: 0;
 	}
 
-	#pokedex-list {
-		grid-template-columns: repeat(2, 200px);
-	}
-
-	#champions-list {
-		grid-template-columns: repeat(2, 200px);
-	}
-
-	#reserve-list {
+	#pokedex-list, #champions-list, #reserve-list {
 		grid-template-columns: repeat(2, 200px);
 	}
 }
@@ -100,15 +92,7 @@
 		margin-top: 0;
 	}
 
-	#pokedex-list {
-		grid-template-columns: repeat(3, 200px);
-	}
-
-	#champions-list {
-		grid-template-columns: repeat(3, 200px);
-	}
-
-	#reserve-list {
+	#pokedex-list, #champions-list, #reserve-list {
 		grid-template-columns: repeat(3, 200px);
 	}
 }
