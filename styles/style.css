@@ -197,7 +197,7 @@ button {
 
 .pokemon-name, .pokemon-id {
 	color: var(--clr-blue);
-	/* max-width: 100%; */
+	max-width: 100%;
 	white-space: normal;
 	word-wrap: break-word;
 }
