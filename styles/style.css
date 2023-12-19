@@ -1,5 +1,4 @@
 :root {
-	/* lägg till varibaler med färger här */
 	--clr-dark: #000000;
 	--clr-light: #FFFFFF;
 	--clr-grey: #b1b1b1;
@@ -8,6 +7,7 @@
 	--clr-blue: #0075BE;
 	--clr-darkblue: #0A285F;
 	--clr-red: #FF0000;
+
 	/* --clr-red: rgb(255, 0, 0) */
 	/* --clr-darkgold 	rgb(213, 161, 0) */
 }
@@ -37,7 +37,7 @@ canvas {
 	user-select: none;
 }
 
-/* removes all default styles */
+/* removes all default button styles */
 button {
 	display: inline-block;
 	padding: 0;
@@ -46,7 +46,8 @@ button {
 	cursor: pointer;
 	color: inherit
 }
-/* code for start screen starts here */
+
+/* two hide classes to use in JavaScript */
 .hidden {
 	display: none;
 }
@@ -54,6 +55,7 @@ button {
 .invisible {
 	visibility: hidden;
 }
+/* code for start screen starts here */
 
 .header {
 	display: flex;
@@ -210,10 +212,10 @@ button {
 	margin: 0 0 1em;
 }
 
-
-.promote:disabled {
+/* style for disabled buttons: */
+/* .promote:disabled {
     background-color: #ccc;
-}
+} */
 
 .nickname-input {
 	margin-top: 1em;

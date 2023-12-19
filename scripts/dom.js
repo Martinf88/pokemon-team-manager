@@ -15,13 +15,14 @@ const pokedexBtn = document.querySelector('.pokedex-btn')
 const championsBtn = document.querySelector('.champions-btn')
 
 
-
+//TAKES DATA FROM API AND CREATES LI'S AND FILLS POKEDEX + TEAM
 export const fillPokedex = (pokemonData) => {
 	const pokedexList = document.querySelector('#pokedex-list');
 	const championsList = document.querySelector('#champions-list');
 
 
 	pokemonData.forEach((pokemon, index) => {
+		//CREATES THE POKEMON CARDS
 		const pokemonCard = document.createElement('li');
 		pokemonCard.classList.add('poke-card');
 		if (index < 3) {
@@ -36,9 +37,11 @@ export const fillPokedex = (pokemonData) => {
 			<button class="btn move-pokemon"></button>
 		`;
 
+		//STORES ORIGINAL POKEMON NAMES FOR LATER USER
 		const pokemonNameElement = pokemonCard.querySelector('.pokemon-name');
 		pokemonNameElement.setAttribute('data-original-name', pokemon.name);
 		
+		//FIRST THREE POKEMONS ARE ADDED TO TEAM
 		if (index < 3) {
 			championsList.appendChild(pokemonCard);
 			pokemonCard.querySelector('.move-pokemon').innerText = 'Kick';
@@ -55,7 +58,7 @@ export const fillPokedex = (pokemonData) => {
 	});
 }
 
-// Enables user to name their pokemons
+// ALLOWS USER TO GIVE NICKNAME
 export function giveNickname(pokemonCard) {
 		const saveNicknameButton = pokemonCard.querySelector('.save-nickname');
         const nicknameInput = pokemonCard.querySelector('.nickname-input');
@@ -71,11 +74,11 @@ export function giveNickname(pokemonCard) {
 
 }
 
+//RESET NICKNAME TO ORIGINAL NAME
 export function resetName(pokemonCard) {
-    //Reset nickname to original name
-    const resetNamesBtn = document.querySelector('.reset-names-btn')
+	const resetNamesBtn = document.querySelector('.reset-names-btn')
     const pokemonName = pokemonCard.querySelector('.pokemon-name');
-
+	
     resetNamesBtn.addEventListener('click', () => {
         const originalName = pokemonName.getAttribute('data-original-name');
         pokemonName.innerText = originalName;
@@ -92,22 +95,19 @@ thirdContainer.classList.add('hidden')
 fourthContainer.classList.add('hidden')
 enterTeamNamePromt.classList.add('invisible')
 
-// start image clicked: hide start screen and show team visualViewport
-
+// start image clicked: hide start screen and show team
 startAdventure.addEventListener('click', (event) => {
 	event.preventDefault()
 	const textValue = enterTeamName.value.trim();
 
 	if(textValue !== '') {
-		//lägg till namn i team name på mina andra vyer
-		//dölj firstContainer & visa secondContainer
 		teamName.innerText += textValue
 		firstContainer.classList.add('hidden')
 		secondContainer.classList.remove('hidden')
 		navbar.classList.remove('hidden')
 		fetchPokemon()
 	} else {
-		//uppmana användaren till att skriva in ett lagnamn
+		//SHOW ENTER TEAM NAME MESSAGE
 		enterTeamNamePromt.classList.remove('invisible')
 
 	}
@@ -117,7 +117,7 @@ startAdventure.addEventListener('click', (event) => {
 })
 
 
-
+//CHANGE BETWEEN VIEWS
 championsBtn.addEventListener('click', () => {
 	secondContainer.classList.remove('hidden')
 	thirdContainer.classList.add('hidden')
@@ -138,7 +138,7 @@ reserveBtn.addEventListener('click', () => {
 
 
 
-//POKEDEX SEARCH FUNCTION
+//POKEMON SEARCH FUNCTION
 searchPokemon.addEventListener('input', () => {
     const searchTerm = searchPokemon.value.toUpperCase();
     const pokeCards = document.querySelectorAll('.poke-card');
