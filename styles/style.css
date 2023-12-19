@@ -64,36 +64,34 @@ button {
 }
 
 .ready {
+	margin-top: 1em;
 	text-align: center;
 	color: var(--clr-red);
 	font-size: 2.5rem;
-	letter-spacing: 0.12em;
-	text-shadow: 2px 2px 4px rgba(255, 255, 255, 10);
+	letter-spacing: 0.11em;
+	text-shadow: 2px 2px 4px rgb(68, 70, 70);
 }
 
 .instructions {
 	text-align: center;
+	font-size: 1.2rem;
 	color: var(--clr-gold);
-	letter-spacing: 0.14em;
+	letter-spacing: 0.1em;
 	margin-top: 4em;
 }
 
-#enter-team-name {
-	background-color: var(--clr-red);
+#enter-team-name, #enter-team-name::placeholder  {
+	background-color: var(--clr-blue);
+	font-weight: 600;
+	letter-spacing: 0.11em;
+	text-align: center;
 	margin-top: 1em;
 	border-radius: 8px;
-	height: 3em;
-	width: 16em;
-	font-size: 1em;
-	text-align: center;
-	color: var(--clr-light);
-	font-family: 'Pixelify Sans', sans-serif;
-	font-weight: 600;
-}
-#enter-team-name::placeholder {
-	font-family: 'Pixelify Sans', sans-serif;
-	font-weight: 600;
-	color: var(--clr-light);
+	width: 16em; 
+	font-size: 2rem;
+	color: var(--clr-red);
+	font-family: 'ArcadeClassic', sans-serif;
+	border: none;
 }
 
 .start-adventure {
@@ -112,39 +110,31 @@ button {
 	background-color: var(--clr-darkblue);
     left: 0;
     right: 0;
-    /* margin: auto; */
 	z-index: 1;
 }
 .message {
 	text-align: center;
 	color: var(--clr-gold);
-	/* background-color: var(--clr-dark); */
 	font-size: 1.5rem;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.11em;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
 }
 
 .team-status-message {
 	color: var(--clr-red);
 	text-decoration: underline;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.15em;
 	margin-top: 0.5em ;
 }
 
 .team-name {
 	color: var(--clr-gold);
 	font-size: 2.5em;
-	text-shadow: 5px 5px 4px rgba(213, 161, 0, 0.5);
-	letter-spacing: 0.3em;
+	letter-spacing: 0.2em;
 	border-top: dashed var(--clr-gold);
 	border-bottom: dashed var(--clr-gold);
 	text-align: center;
-	margin-top: 1em;
-}
- /* onödig???? */
-.btn-container {
-	display: flex;
-	justify-content: center;
+	margin-top: 0.5em;
 }
 
 .move-pokemon {
@@ -167,8 +157,8 @@ button {
 }
 
 .reset-names-btn {
+	letter-spacing: 0.1em;
 	font-weight: 600;
-	letter-spacing: -0.05em;
 	background-color: var(--clr-darkgold);
 	color: var(--clr-darkblue);
 	padding: 0.5em 1em;
@@ -176,13 +166,30 @@ button {
 	transition: box shadow 0.3s;
 }
 
+.reset-names-btn:hover{
+	background-color: var(--clr-darkblue);
+	color: var(--clr-darkgold);
+}
+.reset-names-btn:active{
+	background-color: var(--clr-light);
+	color: var(--clr-darkgold);
+}
+
+#search-pokemon, #search-pokemon::placeholder {
+	font-family: 'ArcadeClassic', sans-serif;
+	background-color: var(--clr-blue);
+	color: var(--clr-light);
+	border-color: var(--clr-light);
+	letter-spacing: 0.11em;
+	border-radius: 8px;
+}	
 
 .pokedex-title, .reserver {
 	text-align: center;
 	margin-top: 1em;
 	color: var(--clr-red);
 	font-size: 2.5em;
-	letter-spacing: 0.25em;
+	letter-spacing: 0.2em;
 }
 
 #pokedex-list, #champions-list, #reserve-list {
