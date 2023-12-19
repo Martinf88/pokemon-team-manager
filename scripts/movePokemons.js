@@ -3,8 +3,9 @@ import { giveNickname, resetName } from "./dom.js";
 const reserveMessageBox = document.querySelector('.reserve-message-box');
 const dexMessageBox = document.querySelector('.dex-message-box');
 const champMessageBox = document.querySelector('.champ-message-box');
-const reserveList = document.querySelector('#reserve-list')
 const teamStatusMessage = document.querySelector('.team-status-message')
+
+const reserveList = document.querySelector('#reserve-list')
 const pokedexList = document.querySelector('#pokedex-list');
 const championsList = document.querySelector('#champions-list');
 
@@ -12,6 +13,7 @@ dexMessageBox.classList.add('invisible')
 champMessageBox.classList.add('invisible')
 reserveMessageBox.classList.add('invisible')
 
+//Creates a clone of the pokemon when clicked on in the pokedex
 function createNewPokemonCard(pokemonCard, list, buttonText) {
     const clonedCard = pokemonCard.cloneNode(true);
     clonedCard.querySelector('.move-pokemon').innerText = buttonText;
@@ -38,8 +40,10 @@ function updateTeamMessages(championsCount) {
 }
 
 export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
+
     pokemonCard.querySelector('.move-pokemon').addEventListener('click', () => {
-        championsList = document.querySelector('#champions-list'); // Update championsList at the start of the event listener
+		//selects updated list to check if championsList is full or not
+        championsList = document.querySelector('#champions-list');
         const moveButton = pokemonCard.querySelector('.move-pokemon');
         const pokemonName = pokemonCard.querySelector('.pokemon-name').textContent;
 
@@ -47,11 +51,13 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
             createNewPokemonCard(pokemonCard, championsList, 'Kick');
             updateMessageBox(dexMessageBox, `${pokemonName} was promoted!`);
             updateTeamMessages(championsList.childElementCount);
+
         } else if (pokemonCard.parentNode === championsList) {
             if (!pokemonCard.classList.contains('first-three')) {
                 championsList.removeChild(pokemonCard);
                 updateMessageBox(champMessageBox, `${pokemonName} was deleted!`);
                 updateTeamMessages(championsList.childElementCount);
+
             } else {
                 moveButton.innerText = 'Promote';
                 pokemonCard.classList.remove('first-three');
@@ -68,8 +74,6 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
             } else {
                 updateMessageBox(reserveMessageBox, `Your team is full!`); // Display the message that the team is full
             }
-        } else if (pokemonCard.parentNode === reserveList && championsList.childElementCount >= 3) {
-            updateMessageBox(reserveMessageBox, `Your team is full!`); // Display the message that the team is full
         } else {
             createNewPokemonCard(pokemonCard, reserveList, 'Promote'); // Change the button text to 'Promote'
             updateMessageBox(dexMessageBox, `${pokemonName} was moved to reserves`);
