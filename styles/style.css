@@ -93,6 +93,11 @@ button {
 	border: none;
 }
 
+.enter-team-name-prompt {
+	color: var(--clr-gold);
+	letter-spacing: 0.1em;
+}
+
 .start-adventure {
 	margin-top: 1rem;
 	width: 20em;
