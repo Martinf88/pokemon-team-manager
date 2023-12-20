@@ -85,14 +85,12 @@ button {
 	letter-spacing: 0.11em;
 	text-align: center;
 	margin-top: 1em;
-	border-radius: 8px;
 	width: 16em; 
 	font-size: 1.1rem;
 	color: var(--clr-red);
 	font-family: 'ArcadeClassic', sans-serif;
 	border: none;
 }
-
 .enter-team-name-prompt {
 	color: var(--clr-gold);
 	letter-spacing: 0.1em;
