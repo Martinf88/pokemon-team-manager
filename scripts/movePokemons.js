@@ -1,17 +1,15 @@
 import { giveNickname, resetName } from "./dom.js";
 
-const reserveMessageBox = document.querySelector('.reserve-message-box');
 const dexMessageBox = document.querySelector('.dex-message-box');
 const champMessageBox = document.querySelector('.champ-message-box');
 const teamStatusMessage = document.querySelector('.team-status-message')
 
-const reserveList = document.querySelector('#reserve-list')
-const pokedexList = document.querySelector('#pokedex-list');
-const championsList = document.querySelector('#champions-list');
+let reserveList = document.querySelector('#reserve-list')
+let pokedexList = document.querySelector('#pokedex-list');
+let championsList = document.querySelector('#champions-list');
 
 dexMessageBox.classList.add('invisible')
 champMessageBox.classList.add('invisible')
-reserveMessageBox.classList.add('invisible')
 
 //Creates a clone of the pokemon when clicked on in the pokedex
 function createNewPokemonCard(pokemonCard, list, buttonText) {
@@ -24,11 +22,14 @@ function createNewPokemonCard(pokemonCard, list, buttonText) {
 }
 
 function updateMessageBox(messageBox, message) {
+	console.log("Inside updateMessageBox"); // Add this line
+    console.log("messageBox: ", messageBox); // Add this line
+    console.log("message: ", message); 
     messageBox.classList.remove('invisible');
     messageBox.innerText = message;
     setTimeout(() => {
         messageBox.classList.add('invisible');
-    }, 1500);
+    }, 1600);
 }
 
 function updateTeamMessages(championsCount) {
@@ -66,19 +67,23 @@ export function addMoveEventListener(pokemonCard, pokedexList, championsList) {
                 updateTeamMessages(championsList.childElementCount);
             }
         } else if (pokemonCard.parentNode === reserveList) {
-            if (championsList.childElementCount < 3) {
-                championsList.appendChild(pokemonCard); // Move the Pokemon card instead of cloning it
-                moveButton.innerText = 'Kick'; // Change the button text to 'Kick'
-                updateMessageBox(reserveMessageBox, `${pokemonName} was promoted!`);
-                updateTeamMessages(championsList.childElementCount);
-            } else {
-                updateMessageBox(reserveMessageBox, `Your team is full!`); // Display the message that the team is full
-            }
-        } else {
-            createNewPokemonCard(pokemonCard, reserveList, 'Promote'); // Change the button text to 'Promote'
-            updateMessageBox(dexMessageBox, `${pokemonName} was moved to reserves`);
-            teamStatusMessage.classList.remove('invisible');
-            updateTeamMessages(championsList.childElementCount);
-        }
+			
+			if (championsList.childElementCount >= 3) {
+				updateMessageBox(champMessageBox, `Your team is full!`);
+			} else {
+				championsList.appendChild(pokemonCard);
+				moveButton.innerText = 'Kick';
+				updateMessageBox(champMessageBox, `${pokemonName} was promoted!`);
+				updateTeamMessages(championsList.childElementCount);
+			}
+		} else {
+			createNewPokemonCard(pokemonCard, reserveList, 'Promote');
+			updateMessageBox(dexMessageBox, `${pokemonName} was moved to reserves`);
+			teamStatusMessage.classList.remove('invisible');
+			updateTeamMessages(championsList.childElementCount);
+		}
     });
 }
+
+
+

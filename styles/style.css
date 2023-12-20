@@ -104,17 +104,15 @@ button {
 }
 
 /* code for chosen champions starts here */
-.champ-message-box, .dex-message-box, .reserve-message-box {
+.champ-message-box, .dex-message-box {
 	position: fixed;
 	background-color: var(--clr-darkblue);
     left: 0;
     right: 0;
 	z-index: 1;
-}
-.message {
 	text-align: center;
 	color: var(--clr-gold);
-	navfont-size: 1.5rem;
+	font-size: 1.5rem;
 	letter-spacing: 0.11em;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
 }
@@ -124,6 +122,7 @@ button {
 	letter-spacing: 0.12em;
 	margin-top: 0.5em ;
 	font-size: 1.4rem;
+	text-align: center;
 }
 
 .team-name {
