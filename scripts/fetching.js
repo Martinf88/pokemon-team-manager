@@ -4,7 +4,7 @@ import { fillPokedex } from "./dom.js";
 export const fetchPokemon = async () => {
     try {
         // Fetch the list of all Pokemon
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10000');
         const data = await response.json();
         const allPokemon = data.results;
 
@@ -18,8 +18,6 @@ export const fetchPokemon = async () => {
             image: data.sprites['front_default'],
             type: data.types.map((type) => type.type.name).join(', ')
         }));
-
-        console.log(pokemon);
 
         // calls function in dom.js
         fillPokedex(pokemon);

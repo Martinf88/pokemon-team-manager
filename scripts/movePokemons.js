@@ -13,6 +13,7 @@ champMessageBox.classList.add('invisible')
 
 //Creates a clone of the pokemon when clicked on in the pokedex
 function createNewPokemonCard(pokemonCard, list, buttonText) {
+	
     const clonedCard = pokemonCard.cloneNode(true);
     clonedCard.querySelector('.move-pokemon').innerText = buttonText;
     giveNickname(clonedCard);
@@ -22,9 +23,7 @@ function createNewPokemonCard(pokemonCard, list, buttonText) {
 }
 
 function updateMessageBox(messageBox, message) {
-	console.log("Inside updateMessageBox"); // Add this line
-    console.log("messageBox: ", messageBox); // Add this line
-    console.log("message: ", message); 
+
     messageBox.classList.remove('invisible');
     messageBox.innerText = message;
     setTimeout(() => {
