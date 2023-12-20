@@ -4,13 +4,11 @@ export const startAdventure = document.querySelector('.start-adventure')
 const firstContainer = document.querySelector('.first')
 const secondContainer = document.querySelector('.second')
 const thirdContainer = document.querySelector('.third')
-const fourthContainer = document.querySelector('.fourth')
 const enterTeamName = document.querySelector('#enter-team-name')
 const teamName = document.querySelector('.team-name')
 const searchPokemon = document.querySelector('#search-pokemon');
 const navbar = document.querySelector('.navbar')
 const enterTeamNamePromt = document.querySelector('.enter-team-name-prompt')
-const reserveBtn = document.querySelector('.reserve-btn')
 const pokedexBtn = document.querySelector('.pokedex-btn')
 const championsBtn = document.querySelector('.champions-btn')
 
@@ -92,7 +90,6 @@ export function resetName(pokemonCard) {
 navbar.classList.add('hidden')
 secondContainer.classList.add('hidden')
 thirdContainer.classList.add('hidden')
-fourthContainer.classList.add('hidden')
 enterTeamNamePromt.classList.add('invisible')
 
 // start image clicked: hide start screen and show team
@@ -121,21 +118,13 @@ startAdventure.addEventListener('click', (event) => {
 championsBtn.addEventListener('click', () => {
 	secondContainer.classList.remove('hidden')
 	thirdContainer.classList.add('hidden')
-	fourthContainer.classList.add('hidden')
 })
 
 pokedexBtn.addEventListener('click', () => {
 	thirdContainer.classList.remove('hidden')
 	secondContainer.classList.add('hidden')
-	fourthContainer.classList.add('hidden')
 
 })
-reserveBtn.addEventListener('click', () => {
-	fourthContainer.classList.remove('hidden')
-	secondContainer.classList.add('hidden')
-	thirdContainer.classList.add('hidden')
-})
-
 
 
 //POKEMON SEARCH FUNCTION

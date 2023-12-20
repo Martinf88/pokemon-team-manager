@@ -201,6 +201,7 @@ button {
 	justify-content: center;
 	gap: 1em;
 	margin: 1em 0 1em;
+	place-content: center;
 }
 
 /* use this class to style all <li> elements */
