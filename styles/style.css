@@ -64,38 +64,37 @@ button {
 }
 
 .ready {
-	margin-top: 1em;
+	margin-top: 0.5em;
 	text-align: center;
 	color: var(--clr-red);
-	font-size: 2.5rem;
+	font-size: 2rem;
 	letter-spacing: 0.11em;
 	text-shadow: 2px 2px 4px rgb(68, 70, 70);
 }
 
 .instructions {
 	text-align: center;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: var(--clr-gold);
 	letter-spacing: 0.1em;
-	margin-top: 4em;
+	margin-top: 2em;
 }
 
 #enter-team-name, #enter-team-name::placeholder  {
 	background-color: var(--clr-blue);
-	font-weight: 600;
 	letter-spacing: 0.11em;
 	text-align: center;
 	margin-top: 1em;
 	border-radius: 8px;
 	width: 16em; 
-	font-size: 2rem;
+	font-size: 1.1rem;
 	color: var(--clr-red);
 	font-family: 'ArcadeClassic', sans-serif;
 	border: none;
 }
 
 .start-adventure {
-	margin-top: 3rem;
+	margin-top: 1rem;
 	width: 20em;
 	opacity: 0.8;
 }
@@ -115,22 +114,22 @@ button {
 .message {
 	text-align: center;
 	color: var(--clr-gold);
-	font-size: 1.5rem;
+	navfont-size: 1.5rem;
 	letter-spacing: 0.11em;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
 }
 
 .team-status-message {
 	color: var(--clr-red);
-	text-decoration: underline;
-	letter-spacing: 0.15em;
+	letter-spacing: 0.12em;
 	margin-top: 0.5em ;
+	font-size: 1.4rem;
 }
 
 .team-name {
 	color: var(--clr-gold);
-	font-size: 2.5em;
-	letter-spacing: 0.2em;
+	font-size: 1.8rem;
+	letter-spacing: 0.1em;
 	border-top: dashed var(--clr-gold);
 	border-bottom: dashed var(--clr-gold);
 	text-align: center;
@@ -147,17 +146,15 @@ button {
 
 .navbar{
 	text-align: center;
-	padding: 1em;
-	/* background-color: var(--clr-darkblue); */
 }
 
-.navbar > * {
+.navbar button {
 	margin-left: 1em;
 	margin-top: 1em;
 }
 
 .reset-names-btn {
-	letter-spacing: 0.1em;
+	letter-spacing: -0.05em;
 	font-weight: 600;
 	background-color: var(--clr-darkgold);
 	color: var(--clr-darkblue);
@@ -185,11 +182,12 @@ button {
 }	
 #search-pokemon {
 	margin-left: 2rem;
+	margin-top: 1rem;
 }
 
 .pokedex-title, .reserver {
 	text-align: center;
-	margin-top: 1em;
+	margin-top: 0.5em;
 	color: var(--clr-red);
 	font-size: 2.5em;
 	letter-spacing: 0.2em;
@@ -202,7 +200,7 @@ button {
 	grid-template-columns: repeat(1, 200px);
 	justify-content: center;
 	gap: 1em;
-	margin: 2em 0 1em;
+	margin: 1em 0 1em;
 }
 
 /* use this class to style all <li> elements */

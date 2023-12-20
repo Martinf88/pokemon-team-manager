@@ -13,7 +13,7 @@
 
 .btn {
 	font-weight: 600;
-	letter-spacing: 0.1em;
+	letter-spacing: -0.05em;
 	background-color: var(--clr-red);
 	color: var(--clr-light);
 	padding: 0.5em 1em;
@@ -39,6 +39,7 @@
 	margin-right: auto;
 	/* padding-left: 0.5rem;
 	padding-right: 0.5rem; */
+	border: 1px solid var(--clr-red);
 }
 
 /* xxs */
@@ -50,6 +51,8 @@
 	.navbar {
 		max-width: 350px;
 	}
+
+	
 }
 
 /* xs */
@@ -82,6 +85,47 @@
 		grid-template-columns: repeat(2, 200px);
 	}
 	
+	#enter-team-name, #enter-team-name::placeholder  {
+		background-color: var(--clr-blue);
+		font-weight: 600;
+		margin-top: 1em;
+		width: 16em; 
+		font-size: 2rem;
+	
+	}
+
+	.instructions {
+		text-align: center;
+		font-size: 1.2rem;
+		color: var(--clr-gold);
+		letter-spacing: 0.1em;
+		margin-top: 4em;
+	}
+
+	.start-adventure {
+		margin-top: 3rem;
+		width: 20em;
+		opacity: 0.8;
+	}
+
+	.ready {
+		margin-top: 1em;
+		text-align: center;
+		color: var(--clr-red);
+		font-size: 2.5rem;
+		letter-spacing: 0.11em;
+		text-shadow: 2px 2px 4px rgb(68, 70, 70);
+	}
+
+	.team-name {
+		color: var(--clr-gold);
+		font-size: 2.5em;
+		letter-spacing: 0.2em;
+		border-top: dashed var(--clr-gold);
+		border-bottom: dashed var(--clr-gold);
+		text-align: center;
+		margin-top: 0.5em;
+	}
 }
 
 /* md */
