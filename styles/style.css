@@ -1,7 +1,7 @@
 :root {
 	--clr-dark: #000000;
-	--clr-light: #FFFFFF;
-	--clr-grey: #b1b1b1;
+	--clr-light: #fefefe;
+	--clr-grey: #606060;
 	--clr-gold: #FFDE00;
 	--clr-darkgold: #D5A100;
 	--clr-blue: #0075BE;
@@ -64,6 +64,8 @@ button {
 }
 
 .ready {
+
+	border-radius: 2px;
 	margin-top: 0.5em;
 	text-align: center;
 	color: var(--clr-red);
@@ -77,16 +79,16 @@ button {
 	font-size: 1.1rem;
 	color: var(--clr-gold);
 	letter-spacing: 0.1em;
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 #enter-team-name, #enter-team-name::placeholder  {
-	background-color: var(--clr-blue);
+	border-radius: 2px;
 	letter-spacing: 0.11em;
 	text-align: center;
 	margin-top: 1em;
 	width: 16em; 
-	font-size: 1.1rem;
+	font-size: 1.5rem;
 	color: var(--clr-red);
 	font-family: 'ArcadeClassic', sans-serif;
 	border: none;
@@ -94,10 +96,10 @@ button {
 .enter-team-name-prompt {
 	color: var(--clr-gold);
 	letter-spacing: 0.1em;
+	font-size: 1.1rem;
 }
 
 .start-adventure {
-	margin-top: 1rem;
 	width: 20em;
 	opacity: 0.8;
 }

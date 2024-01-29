@@ -4,7 +4,7 @@ import { fillPokedex } from "./dom.js";
 export const fetchPokemon = async () => {
     try {
         // Fetch the list of all Pokemon
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10000');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=50');
         const data = await response.json();
         const allPokemon = data.results;
 
