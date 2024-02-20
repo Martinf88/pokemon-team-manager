@@ -37,6 +37,7 @@
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	padding: 0 2rem 0 2rem;
 }
 
 /* xxs */
@@ -177,7 +178,7 @@
 /* lg */
 @media (min-width: 1024px) {
 	.container {
-		max-width: 1023px;
+		max-width: 1024px;
 	}
 
 	.navbar {
