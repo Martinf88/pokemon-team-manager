@@ -4,9 +4,10 @@
 	--clr-grey: #606060;
 	--clr-gold: #FFDE00;
 	--clr-darkgold: #D5A100;
+	--clr-yellow: #EAC435;
 	--clr-blue: #0075BE;
-	--clr-darkblue: #0A285F;
-	--clr-red: #FF4500;
+	--clr-darkblue: #345995;
+	--clr-red: #ff0000;
 
 	/* --clr-red: rgb(255, 0, 0) */
 	/* --clr-darkgold 	rgb(213, 161, 0) */
@@ -25,8 +26,7 @@
 
 body {
 	font-family: 'ArcadeClassic', sans-serif;
-	background-color: var(--clr-blue);
-	/* overflow-x: hidden; */
+	background-color: var(--clr-darkblue);
 }
 
 img,
@@ -85,16 +85,13 @@ button {
 #enter-team-name, #enter-team-name::placeholder  {
 	border-radius: 2px;
 	letter-spacing: 0.11em;
-	text-align: center;
 	margin-top: 1em;
-	width: 16em; 
-	font-size: 1.5rem;
 	color: var(--clr-red);
 	font-family: 'ArcadeClassic', sans-serif;
 	border: none;
 }
 .enter-team-name-prompt {
-	color: var(--clr-gold);
+	color: var(--clr-yellow);
 	letter-spacing: 0.1em;
 	font-size: 1.1rem;
 }
@@ -102,6 +99,7 @@ button {
 .start-adventure {
 	width: 20em;
 	opacity: 0.8;
+	text-decoration: none;
 }
 
 .start-adventure:hover {
@@ -116,7 +114,7 @@ button {
     right: 0;
 	z-index: 1;
 	text-align: center;
-	color: var(--clr-gold);
+	color: var(--clr-yellow);
 	font-size: 1.5rem;
 	letter-spacing: 0.11em;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
@@ -131,11 +129,11 @@ button {
 }
 
 .team-name {
-	color: var(--clr-gold);
+	background-color: var(--clr-green);
+	color: var(--clr-yellow);
 	font-size: 1.8rem;
 	letter-spacing: 0.1em;
-	border-top: dashed var(--clr-gold);
-	border-bottom: dashed var(--clr-gold);
+	padding: 0.3em 0 ;
 	text-align: center;
 	margin-top: 0.5em;
 }
@@ -160,7 +158,7 @@ button {
 .reset-names-btn {
 	letter-spacing: -0.05em;
 	font-weight: 600;
-	background-color: var(--clr-darkgold);
+	background-color: var(--clr-yellow);
 	color: var(--clr-darkblue);
 	padding: 0.5em 1em;
 	border-radius: 6px;
@@ -168,8 +166,7 @@ button {
 }
 
 .reset-names-btn:hover{
-	background-color: var(--clr-darkblue);
-	color: var(--clr-darkgold);
+	opacity: 0.8;
 }
 .reset-names-btn:active{
 	background-color: var(--clr-light);
@@ -178,23 +175,27 @@ button {
 
 #search-pokemon, #search-pokemon::placeholder {
 	font-family: 'ArcadeClassic', sans-serif;
-	background-color: var(--clr-blue);
-	color: var(--clr-light);
+	color: var(--clr-blue);
 	border-color: var(--clr-light);
 	letter-spacing: 0.11em;
 	border-radius: 8px;
 }	
 #search-pokemon {
-	margin-left: 2rem;
-	margin-top: 1rem;
+	width: 15em;
 }
 
 .pokedex-title, .reserver {
 	text-align: center;
 	margin-top: 0.5em;
-	color: var(--clr-red);
+	color: var(--clr-green);
 	font-size: 2.5em;
 	letter-spacing: 0.2em;
+}
+
+.pokedex-title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 #pokedex-list, #champions-list, #reserve-list {
@@ -214,7 +215,7 @@ button {
     align-items: center;
 	text-transform: uppercase;
 	text-align: center;
-	border: 2px solid var(--clr-red);
+	border: 3px solid var(--clr-green);
 	background-color: var(--clr-light);
 	border-radius: 5px;
 }

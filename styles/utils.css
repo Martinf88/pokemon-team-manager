@@ -4,9 +4,11 @@
 	--clr-grey: #606060;
 	--clr-gold: #FFDE00;
 	--clr-darkgold: #D5A100;
+	--clr-yellow: #EAC435;
+	--clr-green: #03CEA4;
 	--clr-blue: #0075BE;
-	--clr-darkblue: #0A285F;
-	--clr-red: #FF4500;
+	--clr-darkblue: #345995;
+	--clr-red: #ff0000;
 
 	/* --clr-red: rgb(255, 0, 0) */
 }
@@ -14,7 +16,7 @@
 .btn {
 	font-weight: 600;
 	letter-spacing: -0.05em;
-	background-color: var(--clr-red);
+	background-color: var(--clr-green);
 	color: var(--clr-light);
 	padding: 0.5em 1em;
 	border-radius: 6px;
@@ -37,7 +39,6 @@
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0 2rem 0 2rem;
 }
 
 /* xxs */
