@@ -1,321 +1,320 @@
 :root {
-	--clr-dark: #000000;
-	--clr-light: #fefefe;
-	--clr-grey: #606060;
-	--clr-gold: #FFDE00;
-	--clr-darkgold: #D5A100;
-	--clr-yellow: #EAC435;
-	--clr-green: #03CEA4;
-	--clr-blue: #0075BE;
-	--clr-darkblue: #345995;
-	--clr-red: #ff0000;
+  --clr-dark: #000000;
+  --clr-light: #fefefe;
+  --clr-grey: #606060;
+  --clr-gold: #ffde00;
+  --clr-darkgold: #d5a100;
+  --clr-yellow: #eac435;
+  --clr-blue: #0075be;
+  --clr-darkblue: #345995;
+  --clr-red: #ff0000;
 
-	/* --clr-red: rgb(255, 0, 0) */
+  /* --clr-red: rgb(255, 0, 0) */
 }
 
 .btn {
-	font-weight: 600;
-	letter-spacing: -0.05em;
-	background-color: var(--clr-green);
-	color: var(--clr-light);
-	padding: 0.5em 1em;
-	border-radius: 6px;
-	transition: box shadow 0.3s;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  background-color: var(--clr-red);
+  color: var(--clr-light);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  transition: box shadow 0.3s;
 }
 
 .btn:hover {
-	opacity: 0.8;
+  opacity: 0.8;
 }
 
 .btn:active {
-	background-color: var(--clr-light);
-	color: var(--clr-red);
-	box-shadow: 0 14px 28px rgba(255, 0, 0, 0.25),
-	0 10px 10px rgba(255, 0, 0, 0.22), 0 0 120px -10px var(--clr-red);
-	opacity: 1;
+  background-color: var(--clr-light);
+  color: var(--clr-red);
+  box-shadow: 0 14px 28px rgba(255, 0, 0, 0.25),
+    0 10px 10px rgba(255, 0, 0, 0.22), 0 0 120px -10px var(--clr-red);
+  opacity: 1;
 }
 
 .container {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* xxs */
 @media (min-width: 350px) {
-	.container {
-		max-width: 350px;
-	}
+  .container {
+    max-width: 350px;
+  }
 
-	.navbar {
-		max-width: 350px;
-	}
-
-	
+  .navbar {
+    max-width: 350px;
+  }
 }
 
 /* xs */
 @media (min-width: 475px) {
-	.container {
-		max-width: 475px;
-	}
+  .container {
+    max-width: 475px;
+  }
 
-	.navbar {
-		max-width: 475px;
-	}
+  .navbar {
+    max-width: 475px;
+  }
 
-	.ready {
-		margin-top: 2rem;
-	}
+  .ready {
+    margin-top: 2rem;
+  }
 
+  #enter-team-name {
+    margin-top: 2rem;
+  }
 
-	#enter-team-name {
-		margin-top: 2rem;
-	}
-
-	.start-adventure {
-		margin-top: 1rem;
-	}
-
+  .start-adventure {
+    margin-top: 1rem;
+  }
 }
 
 /* sm */
 @media (min-width: 640px) {
-	.container {
-		max-width: 640px;
-	}
+  .container {
+    max-width: 640px;
+  }
 
-	.navbar {
-		max-width: 640px;
-	}
+  .navbar {
+    max-width: 640px;
+  }
 
-	.navbar > button {
-		margin-top: 2em;
-		margin-bottom: 2em; 
-	}
+  .navbar > button {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
 
-	#pokedex-list, #champions-list, #reserve-list {
-		grid-template-columns: repeat(2, 200px);
-	}
-	
-	#enter-team-name, #enter-team-name::placeholder  {
-		font-weight: 600;
-		margin-top: 1em;
-		width: 16em; 
-	
-	}
+  #pokedex-list,
+  #champions-list,
+  #reserve-list {
+    grid-template-columns: repeat(2, 200px);
+  }
 
-	.instructions {
-		font-size: 1.2rem;
-		letter-spacing: 0.1em;
-	}
+  #enter-team-name,
+  #enter-team-name::placeholder {
+    font-weight: 600;
+    margin-top: 1em;
+    width: 16em;
+  }
 
-	.start-adventure {
-		margin-top: 3rem;
-		width: 20em;
-		opacity: 0.8;
-	}
+  .instructions {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
 
-	.ready {
-		margin-top: 1em;
-		font-size: 2.5rem;
-	}
+  .start-adventure {
+    margin-top: 3rem;
+    width: 20em;
+    opacity: 0.8;
+  }
 
-	.team-name {
-		font-size: 2.5em;
-		letter-spacing: 0.2em;
-		margin: 0.5em 0 0.5em;
-	}
+  .ready {
+    margin-top: 1em;
+    font-size: 2.5rem;
+  }
+
+  .team-name {
+    font-size: 2.5em;
+    letter-spacing: 0.2em;
+    margin: 0.5em 0 0.5em;
+  }
 }
 
 /* md */
 @media (min-width: 768px) {
-	.container {
-		max-width: 768px;
-	}
+  .container {
+    max-width: 768px;
+  }
 
-	.navbar {
-		max-width: 768px;
-	}
+  .navbar {
+    max-width: 768px;
+  }
 
-	.navbar > * {
-		margin-top: 0;
-	}
+  .navbar > * {
+    margin-top: 0;
+  }
 
-	#pokedex-list, #champions-list, #reserve-list {
-		grid-template-columns: repeat(3, 200px);
-	}
+  #pokedex-list,
+  #champions-list,
+  #reserve-list {
+    grid-template-columns: repeat(3, 200px);
+  }
 
-	#enter-team-name, #enter-team-name::placeholder  {
-		font-weight: 600;
-		margin-top: 1em;
-		width: 16em; 
-	
-	}
+  #enter-team-name,
+  #enter-team-name::placeholder {
+    font-weight: 600;
+    margin-top: 1em;
+    width: 16em;
+  }
 
-	.instructions {
-		font-size: 1.2rem;
-		letter-spacing: 0.1em;
-	}
+  .instructions {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
 
-	.start-adventure {
-		margin-top: 3rem;
-		width: 20em;
-		opacity: 0.8;
-	}
+  .start-adventure {
+    margin-top: 3rem;
+    width: 20em;
+    opacity: 0.8;
+  }
 
-	.ready {
-		margin-top: 1em;
-		font-size: 2.5rem;
-	}
+  .ready {
+    margin-top: 1em;
+    font-size: 2.5rem;
+  }
 
-	.team-name {
-		font-size: 2.5em;
-		letter-spacing: 0.2em;
-		margin: 0.5em 0 0.5em;
-	}
+  .team-name {
+    font-size: 2.5em;
+    letter-spacing: 0.2em;
+    margin: 0.5em 0 0.5em;
+  }
 }
 
 /* lg */
 @media (min-width: 1024px) {
-	.container {
-		max-width: 1024px;
-	}
+  .container {
+    max-width: 1024px;
+  }
 
-	.navbar {
-		max-width: 1024px;
-	}
+  .navbar {
+    max-width: 1024px;
+  }
 
-	.navbar > * {
-		margin-top: 0;
-	}
+  .navbar > * {
+    margin-top: 0;
+  }
 
-	#pokedex-list {
-		grid-template-columns: repeat(4, 200px);
-	}
+  #pokedex-list {
+    grid-template-columns: repeat(4, 200px);
+  }
 
-	#enter-team-name, #enter-team-name::placeholder  {
-		font-weight: 600;
-		margin-top: 1em;
-		width: 16em; 
-	
-	}
+  #enter-team-name,
+  #enter-team-name::placeholder {
+    font-weight: 600;
+    margin-top: 1em;
+    width: 16em;
+  }
 
-	.instructions {
-		font-size: 1.2rem;
-		letter-spacing: 0.1em;
-	}
+  .instructions {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
 
-	.start-adventure {
-		margin-top: 3rem;
-		width: 20em;
-		opacity: 0.8;
-	}
+  .start-adventure {
+    margin-top: 3rem;
+    width: 20em;
+    opacity: 0.8;
+  }
 
-	.ready {
-		margin-top: 1em;
-		font-size: 2.5rem;
-	}
+  .ready {
+    margin-top: 1em;
+    font-size: 2.5rem;
+  }
 
-	.team-name {
-		font-size: 2.5em;
-		letter-spacing: 0.2em;
-		margin: 0.5em 0 0.5em;
-	}
+  .team-name {
+    font-size: 2.5em;
+    letter-spacing: 0.2em;
+    margin: 0.5em 0 0.5em;
+  }
 }
 
 /* xL */
 @media (min-width: 1280px) {
-	.container {
-		max-width: 1280px;
-	}
+  .container {
+    max-width: 1280px;
+  }
 
-	.navbar {
-		max-width: 1280px;
-	}
+  .navbar {
+    max-width: 1280px;
+  }
 
-	.navbar > * {
-		margin-top: 0;
-	}
+  .navbar > * {
+    margin-top: 0;
+  }
 
-	#pokedex-list {
-		grid-template-columns: repeat(5, 200px);
-	}
+  #pokedex-list {
+    grid-template-columns: repeat(5, 200px);
+  }
 
-	#enter-team-name, #enter-team-name::placeholder  {
-		font-weight: 600;
-		margin-top: 1em;
-		width: 16em; 
-	
-	}
+  #enter-team-name,
+  #enter-team-name::placeholder {
+    font-weight: 600;
+    margin-top: 1em;
+    width: 16em;
+  }
 
-	.instructions {
-		font-size: 1.2rem;
-		letter-spacing: 0.1em;
-	}
+  .instructions {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
 
-	.start-adventure {
-		margin-top: 3rem;
-		width: 20em;
-		opacity: 0.8;
-	}
+  .start-adventure {
+    margin-top: 3rem;
+    width: 20em;
+    opacity: 0.8;
+  }
 
-	.ready {
-		margin-top: 1em;
-		font-size: 2.5rem;
-	}
+  .ready {
+    margin-top: 1em;
+    font-size: 2.5rem;
+  }
 
-	.team-name {
-		font-size: 2.5em;
-		letter-spacing: 0.2em;
-		margin: 0.5em 0 0.5em;
-	}
+  .team-name {
+    font-size: 2.5em;
+    letter-spacing: 0.2em;
+    margin: 0.5em 0 0.5em;
+  }
 }
 
 /* 2xL */
 @media (min-width: 1536px) {
-	.container {
-		max-width: 1536px;
-	}
+  .container {
+    max-width: 1536px;
+  }
 
-	.navbar {
-		max-width: 1536px;
-	}
+  .navbar {
+    max-width: 1536px;
+  }
 
-	.navbar > * {
-		margin-top: 0;
-	}
+  .navbar > * {
+    margin-top: 0;
+  }
 
-	#pokedex-list {
-		grid-template-columns: repeat(6, 200px);
-	}
+  #pokedex-list {
+    grid-template-columns: repeat(6, 200px);
+  }
 
-	#enter-team-name, #enter-team-name::placeholder  {
-		font-weight: 600;
-		margin-top: 1em;
-		width: 16em; 
-	
-	}
+  #enter-team-name,
+  #enter-team-name::placeholder {
+    font-weight: 600;
+    margin-top: 1em;
+    width: 16em;
+  }
 
-	.instructions {
-		font-size: 1.2rem;
-		letter-spacing: 0.1em;
-	}
+  .instructions {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
 
-	.start-adventure {
-		margin-top: 3rem;
-		width: 20em;
-		opacity: 0.8;
-	}
+  .start-adventure {
+    margin-top: 3rem;
+    width: 20em;
+    opacity: 0.8;
+  }
 
-	.ready {
-		margin-top: 1em;
-		font-size: 2.5rem;
-	}
+  .ready {
+    margin-top: 1em;
+    font-size: 2.5rem;
+  }
 
-	.team-name {
-		font-size: 2.5em;
-		letter-spacing: 0.2em;
-		margin: 0.5em 0 0.5em;
-	}
-} 
+  .team-name {
+    font-size: 2.5em;
+    letter-spacing: 0.2em;
+    margin: 0.5em 0 0.5em;
+  }
+}

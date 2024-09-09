@@ -1,238 +1,244 @@
 :root {
-	--clr-dark: #000000;
-	--clr-light: #fefefe;
-	--clr-grey: #606060;
-	--clr-gold: #FFDE00;
-	--clr-darkgold: #D5A100;
-	--clr-yellow: #EAC435;
-	--clr-blue: #0075BE;
-	--clr-darkblue: #345995;
-	--clr-red: #ff0000;
+  --clr-dark: #000000;
+  --clr-light: #fefefe;
+  --clr-grey: #606060;
+  --clr-gold: #ffde00;
+  --clr-darkgold: #d5a100;
+  --clr-yellow: #eac435;
+  --clr-blue: #0075be;
+  --clr-darkblue: #345995;
+  --clr-red: #ff0000;
 
-	/* --clr-red: rgb(255, 0, 0) */
-	/* --clr-darkgold 	rgb(213, 161, 0) */
+  /* --clr-red: rgb(255, 0, 0) */
+  /* --clr-darkgold 	rgb(213, 161, 0) */
 }
 
 *,
-::before
-::after {
-	box-sizing: border-box;
+::before ::after {
+  box-sizing: border-box;
 }
 
 * {
-	margin: 0;
-	line-height: calc(1em + 0.5rem);
+  margin: 0;
+  line-height: calc(1em + 0.5rem);
 }
 
 body {
-	font-family: 'ArcadeClassic', sans-serif;
-	background-color: var(--clr-darkblue);
+  font-family: "ArcadeClassic", sans-serif;
+  background-color: var(--clr-darkblue);
 }
 
 img,
 picture,
 svg,
 canvas {
-	max-width: 100%;
-	user-select: none;
+  max-width: 100%;
+  user-select: none;
 }
 
 /* removes all default button styles */
 button {
-	display: inline-block;
-	padding: 0;
-	border: none;
-	background: none;
-	cursor: pointer;
-	color: inherit
+  display: inline-block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
 }
 
 /* two hide classes to use in JavaScript */
 .hidden {
-	display: none;
+  display: none;
 }
 
 .invisible {
-	visibility: hidden;
+  visibility: hidden;
 }
 /* code for start screen starts here */
 
 .header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ready {
-
-	border-radius: 2px;
-	margin-top: 0.5em;
-	text-align: center;
-	color: var(--clr-red);
-	font-size: 2rem;
-	letter-spacing: 0.11em;
-	text-shadow: 2px 2px 4px rgb(68, 70, 70);
+  border-radius: 2px;
+  margin-top: 0.5em;
+  text-align: center;
+  color: var(--clr-red);
+  font-size: 2rem;
+  letter-spacing: 0.11em;
+  text-shadow: 2px 2px 4px rgb(68, 70, 70);
 }
 
 .instructions {
-	text-align: center;
-	font-size: 1.1rem;
-	color: var(--clr-gold);
-	letter-spacing: 0.1em;
-	margin-top: 1em;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--clr-gold);
+  letter-spacing: 0.1em;
+  margin-top: 1em;
 }
 
-#enter-team-name, #enter-team-name::placeholder  {
-	border-radius: 2px;
-	letter-spacing: 0.11em;
-	margin-top: 1em;
-	color: var(--clr-red);
-	font-family: 'ArcadeClassic', sans-serif;
-	border: none;
+#enter-team-name,
+#enter-team-name::placeholder {
+  border-radius: 2px;
+  letter-spacing: 0.11em;
+  margin-top: 1em;
+  color: var(--clr-red);
+  font-family: "ArcadeClassic", sans-serif;
+  border: none;
 }
 .enter-team-name-prompt {
-	color: var(--clr-yellow);
-	letter-spacing: 0.1em;
-	font-size: 1.1rem;
+  color: var(--clr-yellow);
+  letter-spacing: 0.1em;
+  font-size: 1.1rem;
 }
 
 .start-adventure {
-	width: 20em;
-	opacity: 0.8;
-	text-decoration: none;
+  width: 20em;
+  opacity: 0.8;
+  text-decoration: none;
 }
 
 .start-adventure:hover {
-	opacity: 1;
+  opacity: 1;
 }
 
 /* code for chosen champions starts here */
-.champ-message-box, .dex-message-box {
-	position: fixed;
-	background-color: var(--clr-darkblue);
-    left: 0;
-    right: 0;
-	z-index: 1;
-	text-align: center;
-	color: var(--clr-yellow);
-	font-size: 1.5rem;
-	letter-spacing: 0.11em;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+.champ-message-box,
+.dex-message-box {
+  position: fixed;
+  background-color: var(--clr-darkblue);
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+  color: var(--clr-yellow);
+  font-size: 1.5rem;
+  letter-spacing: 0.11em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
 }
 
 .team-status-message {
-	color: var(--clr-red);
-	letter-spacing: 0.12em;
-	margin-top: 0.5em ;
-	font-size: 1.4rem;
-	text-align: center;
+  color: var(--clr-red);
+  letter-spacing: 0.12em;
+  margin-top: 0.5em;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .team-name {
-	background-color: var(--clr-green);
-	color: var(--clr-yellow);
-	font-size: 1.8rem;
-	letter-spacing: 0.1em;
-	padding: 0.3em 0 ;
-	text-align: center;
-	margin-top: 0.5em;
+  background-color: var(--clr-red);
+  color: var(--clr-yellow);
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  padding: 0.3em 0;
+  text-align: center;
+  margin-top: 0.5em;
 }
 
 .move-pokemon {
-	margin: 1em 0 1em;
+  margin: 1em 0 1em;
 }
 
 .save-nickname {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 
-.navbar{
-	text-align: center;
+.navbar {
+  text-align: center;
 }
 
 .navbar button {
-	margin-left: 1em;
-	margin-top: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
 .reset-names-btn {
-	letter-spacing: -0.05em;
-	font-weight: 600;
-	background-color: var(--clr-yellow);
-	color: var(--clr-darkblue);
-	padding: 0.5em 1em;
-	border-radius: 6px;
-	transition: box shadow 0.3s;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+  background-color: var(--clr-yellow);
+  color: var(--clr-darkblue);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  transition: box shadow 0.3s;
 }
 
-.reset-names-btn:hover{
-	opacity: 0.8;
+.reset-names-btn:hover {
+  opacity: 0.8;
 }
-.reset-names-btn:active{
-	background-color: var(--clr-light);
-	color: var(--clr-darkgold);
+.reset-names-btn:active {
+  background-color: var(--clr-light);
+  color: var(--clr-darkgold);
 }
 
-#search-pokemon, #search-pokemon::placeholder {
-	font-family: 'ArcadeClassic', sans-serif;
-	color: var(--clr-blue);
-	border-color: var(--clr-light);
-	letter-spacing: 0.11em;
-	border-radius: 8px;
-}	
+#search-pokemon,
+#search-pokemon::placeholder {
+  font-family: "ArcadeClassic", sans-serif;
+  color: var(--clr-blue);
+  border-color: var(--clr-light);
+  letter-spacing: 0.11em;
+  border-radius: 8px;
+}
 #search-pokemon {
-	width: 15em;
+  width: 15em;
 }
 
-.pokedex-title, .reserver {
-	text-align: center;
-	margin-top: 0.5em;
-	color: var(--clr-green);
-	font-size: 2.5em;
-	letter-spacing: 0.2em;
+.pokedex-title,
+.reserver {
+  text-align: center;
+  margin-top: 0.5em;
+  color: var(--clr-red);
+  font-size: 2.5em;
+  letter-spacing: 0.2em;
 }
 
 .pokedex-title {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#pokedex-list, #champions-list, #reserve-list {
-	padding-inline-start: 0;
-	list-style-type: none;
-	display: grid;
-	grid-template-columns: repeat(1, 200px);
-	justify-content: center;
-	gap: 1em;
-	margin: 1em 0 1em;
+#pokedex-list,
+#champions-list,
+#reserve-list {
+  padding-inline-start: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(1, 200px);
+  justify-content: center;
+  gap: 1em;
+  margin: 1em 0 1em;
 }
 
 /* use this class to style all <li> elements */
 .poke-card {
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-	text-transform: uppercase;
-	text-align: center;
-	border: 3px solid var(--clr-green);
-	background-color: var(--clr-light);
-	border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
+  border: 3px solid var(--clr-gold);
+  background-color: var(--clr-light);
+  border-radius: 5px;
 }
 
-.pokemon-name, .pokemon-id {
-	color: var(--clr-blue);
-	max-width: 100%;
-	white-space: normal;
-	word-wrap: break-word;
+.pokemon-name,
+.pokemon-id {
+  color: var(--clr-blue);
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .pokemon-type {
-	color: grey;
+  color: grey;
 }
 
-.promote, .kick{
-	margin: 0 0 1em;
+.promote,
+.kick {
+  margin: 0 0 1em;
 }
 
 /* style for disabled buttons: */
@@ -241,5 +247,5 @@ button {
 } */
 
 .nickname-input {
-	margin-top: 1em;
+  margin-top: 1em;
 }
